@@ -14,7 +14,7 @@
     
 
     
-<link rel="stylesheet" href="https://ahilton14.github.io/portafolio_ahilton/ananke/css/main.min.css" >
+<link rel="stylesheet" href="https://ahilton14.github.io/portafolio/ananke/css/main.min.css" >
 
 
 
@@ -29,7 +29,7 @@
     <meta property="og:title" content="Prediciendo si los clientes abandonan las tarjetas de crédito" />
 <meta property="og:description" content="Análisis de las tarjetas de crédito" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ahilton14.github.io/portafolio_ahilton/post/tarjeta_credito_analisis/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://ahilton14.github.io/portafolio/post/tarjeta_credito_analisis/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-11-26T12:00:00-05:00" />
 <meta property="article:modified_time" content="2021-11-26T12:00:00-05:00" /><meta property="og:site_name" content="Ahilton Choquecahua Tupa" />
 
@@ -52,11 +52,11 @@
 
   
   
-  <header class="cover bg-top" style="background-image: url('https://ahilton14.github.io/portafolio_ahilton/images/abs.jpg');">
+  <header class="cover bg-top" style="background-image: url('https://ahilton14.github.io/portafolio/images/abs.jpg');">
     <div class="pb3-m pb6-l bg-black-60">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
-    <a href="https://ahilton14.github.io/portafolio_ahilton/" class="f3 fw2 hover-white no-underline white-90 dib">
+    <a href="https://ahilton14.github.io/portafolio/" class="f3 fw2 hover-white no-underline white-90 dib">
       
         Ahilton Choquecahua Tupa
       
@@ -68,19 +68,19 @@
         <ul class="pl0 mr3">
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://ahilton14.github.io/portafolio_ahilton/about/" title="Acerca de mí page">
+            <a class="hover-white no-underline white-90" href="https://ahilton14.github.io/portafolio/about/" title="Acerca de mí page">
               Acerca de mí
             </a>
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://ahilton14.github.io/portafolio_ahilton/contact/" title="Contacto page">
+            <a class="hover-white no-underline white-90" href="https://ahilton14.github.io/portafolio/contact/" title="Contacto page">
               Contacto
             </a>
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="https://ahilton14.github.io/portafolio_ahilton/post/" title="Proyectos page">
+            <a class="hover-white no-underline white-90" href="https://ahilton14.github.io/portafolio/post/" title="Proyectos page">
               Proyectos
             </a>
           </li>
@@ -256,7 +256,7 @@ sub_target1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e"
 <h3 id="21-análisis-de-correlación---spearman">2.1 Análisis de correlación - Spearman</h3>
 <p>Para que este análisis no sea demasiado extenso, aplicaré la prueba estadística no paramétrica de Spearman, obteniendo así el coeficiente de correlación, que mide la dependencia estadística entre dos variables. De esta forma, podemos verificar desde el principio qué variables deben recibir más atención, ahorrando tiempo en el análisis de variables que no tienen una fuerte influencia en la tasa de clientes que abandonan el servicio de tarjetas de crédito.</p>
 <h4 id="cómo-calcular-el-coeficiente-de-correlación-de-spearman">Cómo calcular el coeficiente de correlación de Spearman</h4>
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/sc.png"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/sc.png"/>
 </figure>
 
 <p>n = Número de puntos de datos para las dos variables</p>
@@ -288,7 +288,7 @@ cor_spearman <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e
                 series <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(
                         boderWidth <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
                         dataLabels <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)))
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/coef_corr_sp.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/coef_corr_sp.png"/>
 </figure>
 
 <p>Las variables que demuestran una asociación negativa considerable en relación al atributo dependiente, y que son objeto de investigación, son: Total_Trans_Ct, Total_Ct_Chng_Q4_Q1, Total_Revolving_Bal y Avg_Utilization_Ratio. Una asociación negativa (&lt;0) indica que el atributo tiene un nivel de importancia relevante en la permanencia del cliente.</p>
@@ -317,7 +317,7 @@ a <span style="color:#f92672">&lt;-</span> BankChurners <span style="color:#f926
         <span style="color:#a6e22e">hchart</span>(<span style="color:#e6db74">&#34;treemap&#34;</span>, <span style="color:#a6e22e">hcaes</span>(x <span style="color:#f92672">=</span> Marital_Status, value <span style="color:#f92672">=</span> n, color <span style="color:#f92672">=</span> n)) <span style="color:#f92672">%&gt;%</span>
         <span style="color:#a6e22e">hc_colorAxis</span>(stops <span style="color:#f92672">=</span> <span style="color:#a6e22e">color_stops</span>(colors <span style="color:#f92672">=</span> viridis<span style="color:#f92672">::</span><span style="color:#a6e22e">inferno</span>(<span style="color:#ae81ff">10</span>))) <span style="color:#f92672">%&gt;%</span>
         <span style="color:#a6e22e">hc_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Número de cancelaciones por estado civil&#34;</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/est_civ.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/est_civ.png"/>
 </figure>
 
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Ingresos anuales</span>
@@ -327,7 +327,7 @@ a<span style="color:#f92672">&lt;-</span>BankChurners <span style="color:#f92672
   <span style="color:#a6e22e">hchart</span>(<span style="color:#e6db74">&#34;treemap&#34;</span>, <span style="color:#a6e22e">hcaes</span>(x <span style="color:#f92672">=</span> Income_Category, value <span style="color:#f92672">=</span> n, color <span style="color:#f92672">=</span> n)) <span style="color:#f92672">%&gt;%</span>
   <span style="color:#a6e22e">hc_colorAxis</span>(stops <span style="color:#f92672">=</span> <span style="color:#a6e22e">color_stops</span>(colors <span style="color:#f92672">=</span> viridis<span style="color:#f92672">::</span><span style="color:#a6e22e">inferno</span>(<span style="color:#ae81ff">10</span>))) <span style="color:#f92672">%&gt;%</span>
   <span style="color:#a6e22e">hc_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Cantidad de cancelaciones por ingreso anual&#34;</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/ing_anu.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/ing_anu.png"/>
 </figure>
 
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Nivel de educación</span>
@@ -337,7 +337,7 @@ a<span style="color:#f92672">&lt;-</span>BankChurners <span style="color:#f92672
   <span style="color:#a6e22e">hchart</span>(<span style="color:#e6db74">&#34;treemap&#34;</span>, <span style="color:#a6e22e">hcaes</span>(x <span style="color:#f92672">=</span> Education_Level, value <span style="color:#f92672">=</span> n, color <span style="color:#f92672">=</span> n)) <span style="color:#f92672">%&gt;%</span>
   <span style="color:#a6e22e">hc_colorAxis</span>(stops <span style="color:#f92672">=</span> <span style="color:#a6e22e">color_stops</span>(colors <span style="color:#f92672">=</span> viridis<span style="color:#f92672">::</span><span style="color:#a6e22e">inferno</span>(<span style="color:#ae81ff">10</span>))) <span style="color:#f92672">%&gt;%</span>
   <span style="color:#a6e22e">hc_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Número de cancelaciones por nivel educativo&#34;</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/niv_edu.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/niv_edu.png"/>
 </figure>
 
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Tipo de tarjeta</span>
@@ -347,7 +347,7 @@ a<span style="color:#f92672">&lt;-</span>BankChurners <span style="color:#f92672
   <span style="color:#a6e22e">hchart</span>(<span style="color:#e6db74">&#34;treemap&#34;</span>, <span style="color:#a6e22e">hcaes</span>(x <span style="color:#f92672">=</span> Card_Category, value <span style="color:#f92672">=</span> n, color <span style="color:#f92672">=</span> n)) <span style="color:#f92672">%&gt;%</span>
   <span style="color:#a6e22e">hc_colorAxis</span>(stops <span style="color:#f92672">=</span> <span style="color:#a6e22e">color_stops</span>(colors <span style="color:#f92672">=</span> viridis<span style="color:#f92672">::</span><span style="color:#a6e22e">inferno</span>(<span style="color:#ae81ff">10</span>))) <span style="color:#f92672">%&gt;%</span>
   <span style="color:#a6e22e">hc_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Número de cancelaciones por tipo de tarjeta&#34;</span>, align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tip_tar.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/tip_tar.png"/>
 </figure>
 
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Estado civil</span>
@@ -437,7 +437,7 @@ a <span style="color:#f92672">&lt;-</span> BankChurners <span style="color:#f926
   <span style="color:#a6e22e">hc_legend</span>(align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
   <span style="color:#a6e22e">hc_tooltip</span>(formatter <span style="color:#f92672">=</span> <span style="color:#a6e22e">JS</span>(<span style="color:#e6db74">&#34;function(){
 </span><span style="color:#e6db74">                            return (&#39; &lt;br&gt; Frequency: &#39; + this.y + &#39; &lt;br&gt; Total Transactions: &#39; + this.x)}&#34;</span>))
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tot_trans.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/tot_trans.png"/>
 </figure>
 
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#Saldo total de la tarjeta de crédito renovable</span>
@@ -455,7 +455,7 @@ a<span style="color:#f92672">&lt;-</span> BankChurners <span style="color:#f9267
   <span style="color:#a6e22e">hc_legend</span>(align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
   <span style="color:#a6e22e">hc_tooltip</span>(formatter <span style="color:#f92672">=</span> <span style="color:#a6e22e">JS</span>(<span style="color:#e6db74">&#34;function(){
 </span><span style="color:#e6db74">                            return (&#39; &lt;br&gt; Frequency: &#39; + this.y + &#39; &lt;br&gt; Revolving balance: &#39; + this.x)}&#34;</span>))
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/sal_tot_ren.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/sal_tot_ren.png"/>
 </figure>
 
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#Tarifa promedio por uso de la tarjeta</span>
@@ -473,7 +473,7 @@ a<span style="color:#f92672">&lt;-</span>BankChurners <span style="color:#f92672
   <span style="color:#a6e22e">hc_legend</span>(align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
   <span style="color:#a6e22e">hc_tooltip</span>(formatter <span style="color:#f92672">=</span> <span style="color:#a6e22e">JS</span>(<span style="color:#e6db74">&#34;function(){
 </span><span style="color:#e6db74">                            return (&#39; &lt;br&gt; Frequency: &#39; + this.y + &#39; &lt;br&gt; Average card usage fee: &#39; + this.x)}&#34;</span>))
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tar_pro.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/tar_pro.png"/>
 </figure>
 
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#Cambio en el recuento de transacciones</span>
@@ -491,7 +491,7 @@ a<span style="color:#f92672">&lt;-</span>BankChurners <span style="color:#f92672
   <span style="color:#a6e22e">hc_legend</span>(align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
   <span style="color:#a6e22e">hc_tooltip</span>(formatter <span style="color:#f92672">=</span> <span style="color:#a6e22e">JS</span>(<span style="color:#e6db74">&#34;function(){
 </span><span style="color:#e6db74">                            return (&#39; &lt;br&gt; Frequency: &#39; + this.y + &#39; &lt;br&gt; Change in transaction count (Q4 over Q1): &#39; + this.x)}&#34;</span>))
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/rec_trans.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/rec_trans.png"/>
 </figure>
 
 <h3 id="24-análisis-de-las-transacciones-de-los-clientes">2.4 Análisis de las transacciones de los clientes</h3>
@@ -507,7 +507,7 @@ a<span style="color:#f92672">&lt;-</span>BankChurners <span style="color:#f92672
 Use 'data_to_boxplot' instead.
 See help(&quot;Deprecated&quot;)&quot;
 </code></pre>
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/boxp.png"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/boxp.png"/>
 </figure>
 
 <p>Una forma de interpretar las medidas de separación del gráfico de diagrama de caja anterior es:</p>
@@ -583,7 +583,7 @@ a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">highchart</
   <span style="color:#a6e22e">hc_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Frecuencia relativa de las características cualitativas de cada grupo de clientes&#34;</span>,
     style <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(fontWeight <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bold&#34;</span>, fontSize <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;25px&#34;</span>), align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
   <span style="color:#a6e22e">hc_yAxis</span>(title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;%&#34;</span>))
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/frec.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/frec.png"/>
 </figure>
 
 <p>En el gráfico anterior, donde el área de cada rectángulo representa la frecuencia relativa de una categoría dada que pertenece a una variable cualitativa. En cada una de las características presentadas en el eje x del gráfico, existe la frecuencia relativa de dos grupos distintos, que son: &lsquo;Attracted Customer&rsquo; (clientes que dejaron el servicio de tarjeta) y &lsquo;Existing Customer&rsquo; (clientes que permanecieron con los servicios de tarjetas de crédito) &lsquo;. Al observar el gráfico, se puede ver que al comparar los porcentajes de cada categoría entre las clases de Cliente atraído y Cliente existente, no hay ningún comportamiento que indique que los clientes con ciertas cualidades, como sex, marital status o educational backgrground, tengan más probabilidades de abandonar o quedarse con los servicios de tarjetas de crédito.</p>
@@ -600,7 +600,7 @@ gp<span style="color:#f92672">$</span>Relative.Frequency <span style="color:#f92
 gp<span style="color:#f92672">$</span>n <span style="color:#f92672">=</span> <span style="color:#66d9ef">NULL</span>
 
 a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">datatable</span>(gp)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/gp.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/gp.png"/>
 </figure>
 
 <p>Si bien es necesario tener en cuenta otras variables para que sea posible realizar afirmaciones concretas, con la tabla de grupos de características y sus respectivos porcentajes relativos, tenemos, en base a atributos cualitativos de los clientes, de 275 combinaciones diferentes de características de atributos cualitativos <!-- raw HTML omitted --> 9,78% <!-- raw HTML omitted --> de los perfiles responsables de dejar los servicios de tarjetas son:</p>
@@ -632,7 +632,7 @@ a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">datatable</
 </ul>
 <p>Para definir el número de agrupaciones, usaré la regla de Sturges que nos permite crear clases de amplitud fija a partir de la siguiente ecuación:</p>
 <p>Regla de Sturges</p>
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/sturges.PNG"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/sturges.PNG"/>
 </figure>
 
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Crear una copia del conjunto de datos</span>
@@ -672,10 +672,10 @@ h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchar
         <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
 
 a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tota_tra_2.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/tota_tra_2.png"/>
 </figure>
 
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tot_tra_f.png"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/tot_tra_f.png"/>
 </figure>
 
 <h5 id="3112-avg_utilization_ratio">3.1.1.2 Avg_Utilization_Ratio</h5>
@@ -696,10 +696,10 @@ h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchar
         <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
 
 a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/avg_ut_ra.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/avg_ut_ra.png"/>
 </figure>
 
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/avg_f.png"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/avg_f.png"/>
 </figure>
 
 <h5 id="3113-total_ct_chng_q4_q1">3.1.1.3 Total_Ct_Chng_Q4_Q1</h5>
@@ -720,10 +720,10 @@ h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchar
         <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
 
 a <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tot_ct_2.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/tot_ct_2.png"/>
 </figure>
 
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tot_ct_2_f.png"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/tot_ct_2_f.png"/>
 </figure>
 
 <h5 id="3114-total_trans_amt">3.1.1.4 Total_Trans_Amt</h5>
@@ -744,10 +744,10 @@ h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchar
         <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
 
 a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tot_trans_2.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/tot_trans_2.png"/>
 </figure>
 
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tot_trans_f.png"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/tot_trans_f.png"/>
 </figure>
 
 <h4 id="312-ii">3.1..2 II</h4>
@@ -769,10 +769,10 @@ h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchar
         <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
 
 a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tota_amt_2.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/tota_amt_2.png"/>
 </figure>
 
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tot_amt_f.png"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/tot_amt_f.png"/>
 </figure>
 
 <h5 id="3122-avg_open_to_buy">3.1.2.2 Avg_Open_To_Buy</h5>
@@ -793,10 +793,10 @@ h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchar
         <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
 
 a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/avg_buy_2.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/avg_buy_2.png"/>
 </figure>
 
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/avg_buy_f.png"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/avg_buy_f.png"/>
 </figure>
 
 <h5 id="3123-total_revolving_bal">3.1.2.3 Total_Revolving_Bal</h5>
@@ -817,10 +817,10 @@ h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchar
         <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
 
 a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tot_rel_2.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/tot_rel_2.png"/>
 </figure>
 
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tot_rel_f.png"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/tot_rel_f.png"/>
 </figure>
 
 <h5 id="3124-credit_limit">3.1.2.4 Credit_Limit</h5>
@@ -841,10 +841,10 @@ h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchar
         <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
 
 a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/cre_lim_2.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/cre_lim_2.png"/>
 </figure>
 
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/cre_lim_2_f.png"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/cre_lim_2_f.png"/>
 </figure>
 
 <h4 id="313-iii">3.1.3 III</h4>
@@ -866,10 +866,10 @@ h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchar
         <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
 
 a <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/con_cou_2.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/con_cou_2.png"/>
 </figure>
 
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/con_cou_f.png"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/con_cou_f.png"/>
 </figure>
 
 <h4 id="3132-months_inactive_12_mon">3.1.3.2 Months_Inactive_12_mon</h4>
@@ -890,10 +890,10 @@ h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchar
         <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
 
 aa<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/mon_ina_2.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/mon_ina_2.png"/>
 </figure>
 
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/mon_ina_f.png"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/mon_ina_f.png"/>
 </figure>
 
 <h4 id="3133-total_relationship_count">3.1.3.3 Total_Relationship_Count</h4>
@@ -915,10 +915,10 @@ h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchar
         <span style="color:#a6e22e">hc_add_theme</span>(<span style="color:#a6e22e">hc_theme_smpl</span>())
 
 a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tota_rev_2.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/tota_rev_2.png"/>
 </figure>
 
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tota_rev_f.png"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/tota_rev_f.png"/>
 </figure>
 
 <h4 id="314-iv">3.1.4 IV</h4>
@@ -941,10 +941,10 @@ h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchar
         <span style="color:#a6e22e">hc_add_theme</span>(<span style="color:#a6e22e">hc_theme_smpl</span>())
 
 aa<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/mon_on_b_2.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/mon_on_b_2.png"/>
 </figure>
 
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/mon_on_b_ff.png"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/mon_on_b_ff.png"/>
 </figure>
 
 <h5 id="3142-dependent_count">3.1.4.2 Dependent_count</h5>
@@ -966,10 +966,10 @@ h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchar
         <span style="color:#a6e22e">hc_add_theme</span>(<span style="color:#a6e22e">hc_theme_smpl</span>())
 
 a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/dep_cou_2.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/dep_cou_2.png"/>
 </figure>
 
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/dep_cou_ff.png"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/dep_cou_ff.png"/>
 </figure>
 
 <h5 id="3143-customer_age">3.1.4.3 Customer_Age</h5>
@@ -990,10 +990,10 @@ h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchar
         <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
 
 a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/cus_age_2.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/cus_age_2.png"/>
 </figure>
 
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/cus_age_f.png"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/cus_age_f.png"/>
 </figure>
 
 <h3 id="32-one-hot-encoding">3.2 One Hot Encoding</h3>
@@ -1088,10 +1088,10 @@ h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">billboar
         <span style="color:#a6e22e">bb_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SMOTE Applied&#34;</span>, padding <span style="color:#f92672">=</span> <span style="color:#66d9ef">NULL</span>, position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>)
 
 a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/ori_dat.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/ori_dat.png"/>
 </figure>
 
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/smo_ap.png"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/smo_ap.png"/>
 </figure>
 
 <h2 id="4-selección-de-características">4. Selección de características</h2>
@@ -1115,7 +1115,7 @@ a<span style="color:#f92672">&lt;-</span>best_vars <span style="color:#f92672">%
 </code></pre></div><pre><code>Warning message in lm(Class ~ ., method = &quot;rf&quot;, data = smote_train_c):
 &quot;method = 'rf' is not supported. Using 'qr'&quot;
 </code></pre>
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/imp.png"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/imp.png"/>
 </figure>
 
 <h2 id="5-aprendizaje-automático--xgbtree">5. Aprendizaje automático | xgbTree</h2>
@@ -1208,10 +1208,10 @@ ac <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">billboar
         <span style="color:#a6e22e">bb_legend</span>(show <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>)
 
 a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(cm, ac, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>)
-</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/cm.png"/>
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio/images/cm.png"/>
 </figure>
 
-<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/ac.png"/>
+<figure><img src="https://ahilton14.github.io/portafolio/images/ac.png"/>
 </figure>
 
 <h2 id="6-referencias">6 Referencias</h2>
@@ -1238,7 +1238,7 @@ a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</sp
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://ahilton14.github.io/portafolio_ahilton/" >
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://ahilton14.github.io/portafolio/" >
     &copy;  Ahilton Choquecahua Tupa 2021 
   </a>
     <div>
