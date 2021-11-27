@@ -6,13 +6,13 @@
     <description>Recent content in Proyectos on Ahilton Choquecahua Tupa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Mar 2017 12:00:00 -0500</lastBuildDate><atom:link href="https://ahilton14.github.io/portafolio_ahilton/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Nov 2021 12:00:00 -0500</lastBuildDate><atom:link href="https://ahilton14.github.io/portafolio_ahilton/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Prediciendo si los clientes abandonan las tarjetas de crédito 💳</title>
-      <link>https://ahilton14.github.io/portafolio_ahilton/post/chapter-2/</link>
-      <pubDate>Fri, 26 Nov 2021 11:13:32 -0400</pubDate>
+      <title>Prediciendo si los clientes abandonan las tarjetas de crédito</title>
+      <link>https://ahilton14.github.io/portafolio_ahilton/post/tarjeta_credito_analisis/</link>
+      <pubDate>Fri, 26 Nov 2021 12:00:00 -0500</pubDate>
       
-      <guid>https://ahilton14.github.io/portafolio_ahilton/post/chapter-2/</guid>
+      <guid>https://ahilton14.github.io/portafolio_ahilton/post/tarjeta_credito_analisis/</guid>
       <description>1. Descripción del proyecto 1.1 Contexto del problema El gerente de un banco se siente incómodo con cada vez más clientes que abandonan sus servicios de tarjeta de crédito. Realmente agradecerían que alguien pudiera predecir quién se verá afectado para poder acudir de manera proactiva al cliente para brindarle mejores servicios y cambiar las decisiones del cliente en la dirección opuesta.
 1.2 El objetivo Este proyecto se lleva a cabo en una secuencia de pasos, el primero de los cuales consiste en un análisis exploratorio, donde el objetivo es conocer el comportamiento de las variables y analizar atributos que indican una fuerte relación con la cancelación de los clientes del servicio de tarjetas de crédito.</description>
     </item>

@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Prediciendo si los clientes abandonan las tarjetas de crédito | Ahilton Choquecahua Tupa</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Análisis de las tarjetas de crédito">
+    <meta name="generator" content="Hugo 0.89.4" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="https://ahilton14.github.io/portafolio_ahilton/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Prediciendo si los clientes abandonan las tarjetas de crédito" />
+<meta property="og:description" content="Análisis de las tarjetas de crédito" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahilton14.github.io/portafolio_ahilton/post/tarjeta_credito_analisis/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-11-26T12:00:00-05:00" />
+<meta property="article:modified_time" content="2021-11-26T12:00:00-05:00" /><meta property="og:site_name" content="Ahilton Choquecahua Tupa" />
+
+<meta itemprop="name" content="Prediciendo si los clientes abandonan las tarjetas de crédito">
+<meta itemprop="description" content="Análisis de las tarjetas de crédito"><meta itemprop="datePublished" content="2021-11-26T12:00:00-05:00" />
+<meta itemprop="dateModified" content="2021-11-26T12:00:00-05:00" />
+<meta itemprop="wordCount" content="5583">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Prediciendo si los clientes abandonan las tarjetas de crédito"/>
+<meta name="twitter:description" content="Análisis de las tarjetas de crédito"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://ahilton14.github.io/portafolio_ahilton/images/abs.jpg');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://ahilton14.github.io/portafolio_ahilton/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Ahilton Choquecahua Tupa
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://ahilton14.github.io/portafolio_ahilton/about/" title="Acerca de mí page">
+              Acerca de mí
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://ahilton14.github.io/portafolio_ahilton/contact/" title="Contacto page">
+              Contacto
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://ahilton14.github.io/portafolio_ahilton/post/" title="Proyectos page">
+              Proyectos
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+<a href="https://www.linkedin.com/in/ahilton-choquecahua-tupa-400613182/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Prediciendo si los clientes abandonan las tarjetas de crédito</h1>
+          
+            <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
+              Análisis de las tarjetas de crédito
+            </h2>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        PROYECTOS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://ahilton14.github.io/post/tarjeta_credito_analisis/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://ahilton14.github.io/post/tarjeta_credito_analisis/&amp;text=Prediciendo%20si%20los%20clientes%20abandonan%20las%20tarjetas%20de%20cr%c3%a9dito" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://ahilton14.github.io/post/tarjeta_credito_analisis/&amp;title=Prediciendo%20si%20los%20clientes%20abandonan%20las%20tarjetas%20de%20cr%c3%a9dito" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Prediciendo si los clientes abandonan las tarjetas de crédito</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-11-26T12:00:00-05:00">November 26, 2021</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="1-descripción-del-proyecto">1. Descripción del proyecto</h2>
+<h3 id="11-contexto-del-problema">1.1 Contexto del problema</h3>
+<p>El gerente de un banco se siente incómodo con cada vez más clientes que abandonan sus servicios de tarjeta de crédito. Realmente agradecerían que alguien pudiera predecir quién se verá afectado para poder acudir de manera proactiva al cliente para brindarle mejores servicios y cambiar las decisiones del cliente en la dirección opuesta.</p>
+<h3 id="12-el-objetivo">1.2 El objetivo</h3>
+<p>Este proyecto se lleva a cabo en una secuencia de pasos, el primero de los cuales consiste en un análisis exploratorio, donde el objetivo es conocer el comportamiento de las variables y analizar atributos que indican una fuerte relación con la cancelación de los clientes del servicio de tarjetas de crédito. Tras la segunda parte, que consiste en aplicar técnicas de ingeniería de recursos, el tercer acto consiste en aplicar un algoritmo de aprendizaje automático para encontrar los mejores recursos para construir el modelo. Al final del proyecto, una vez finalizados todos los pasos, se desarrollará un modelo de aprendizaje automático, capaz de predecir, en base a los datos de un sistema, si un cliente dejará el servicio de tarjeta de crédito o no.</p>
+<h3 id="13-conjunto-de-datos">1.3 Conjunto de datos</h3>
+<p>Este conjunto de datos consta de 10,127 clientes que mencionan su edad, salario, estado civil, límite de tarjeta de crédito, categoría de tarjeta de crédito, etc.
+Solo tenemos un 16,07% de clientes que han cancelado. Por lo tanto, es un poco difícil entrenar nuestro modelo para predecir la rotación de clientes.</p>
+<h4 id="variables-más-representativas">variables más representativas:</h4>
+<ul>
+<li><strong>Attrition Flag:</strong> Esta es nuestra variable objetivo, significa si nuestro cliente decidió dejar la organización o si existe una alta probabilidad de que el cliente se vaya.</li>
+<li><strong>Gender:</strong> Masculino o femenino.</li>
+<li><strong>Customer age:</strong> Edad del cliente</li>
+<li><strong>Income category:</strong> A qué categoría de ingresos pertenece el cliente.</li>
+<li><strong>Card category:</strong> Categoría de tarjeta que tiene el cliente.</li>
+<li><strong>Months Inactive:</strong> Meses de inactividad de usar la tarjeta de crédito.</li>
+<li><strong>Credit Limit:</strong> Límite de crédito que el cliente tiene actualmente.</li>
+<li><strong>Total Revolving Balance:</strong> La parte no pagada que se transfiere al mes siguiente cuando un cliente no paga.</li>
+<li><strong>Average Utilization Ratio:</strong> Mide la cantidad de crédito que está usando en comparación con la cantidad que tiene disponible.</li>
+<li><strong>Open to buy:</strong> La cantidad de crédito disponible en un momento dado en la cuenta del titular de una tarjeta de crédito. Por lo tanto, el promedio de apertura para comprar es el crédito promedio disponible asignado a un cliente específico.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#Cargamos las librerias a usar en este proyecto</span>
+<span style="color:#a6e22e">library</span>(randomForest)
+<span style="color:#a6e22e">library</span>(highcharter)
+<span style="color:#a6e22e">library</span>(billboarder)
+<span style="color:#a6e22e">library</span>(stringr)
+<span style="color:#a6e22e">library</span>(ggplot2)
+<span style="color:#a6e22e">library</span>(xgboost)
+<span style="color:#a6e22e">library</span>(viridis)
+<span style="color:#a6e22e">library</span>(timetk)
+<span style="color:#a6e22e">library</span>(tidyr)
+<span style="color:#a6e22e">library</span>(MASS)
+<span style="color:#a6e22e">library</span>(dplyr)
+<span style="color:#a6e22e">library</span>(caret)
+<span style="color:#a6e22e">library</span>(DMwR)
+<span style="color:#a6e22e">library</span>(ROSE)
+<span style="color:#a6e22e">library</span>(glue)
+<span style="color:#a6e22e">library</span>(pROC)
+<span style="color:#a6e22e">library</span>(DT)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#Cargando el conjunto de datos</span>
+BankChurners <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(<span style="color:#e6db74">&#34;./BankChurners.csv&#34;</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Eliminar columnas que no se utilizarán durante el análisis</span>
+BankChurners <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">select</span>(BankChurners, <span style="color:#f92672">-</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;CLIENTNUM&#34;</span>, <span style="color:#e6db74">&#34;Naive_Bayes_Classifier_Attrition_Flag_Card_Category_Contacts_Count_12_mon_Dependent_count_Education_Level_Months_Inactive_12_mon_1&#34;</span>, <span style="color:#e6db74">&#34;Naive_Bayes_Classifier_Attrition_Flag_Card_Category_Contacts_Count_12_mon_Dependent_count_Education_Level_Months_Inactive_12_mon_2&#34;</span>))
+
+<span style="color:#75715e">#Observamos las primeras 6 filas de la variable</span>
+<span style="color:#a6e22e">head</span>(BankChurners)
+</code></pre></div><!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#Asignamos a otra variable para ver la correlación de todas las variables</span>
+BankChurners_cor <span style="color:#f92672">&lt;-</span> BankChurners
+
+<span style="color:#75715e"># Reemplazo de los elementos de la variable Attrition_Flag</span>
+sub_target <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(x){
+        <span style="color:#a6e22e">if</span>(x <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Existing Customer&#34;</span>){
+                <span style="color:#a6e22e">return</span>(<span style="color:#ae81ff">0</span>)
+        } else {
+                <span style="color:#a6e22e">return</span>(<span style="color:#ae81ff">1</span>)
+        }
+}
+
+BankChurners_cor<span style="color:#f92672">$</span>Attrition_Flag <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">sapply</span>(BankChurners_cor<span style="color:#f92672">$</span>Attrition_Flag, sub_target)
+
+<span style="color:#75715e"># Reemplazo de los elementos de la variable Attrition_Flag</span>
+sub_target1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(x){
+  <span style="color:#a6e22e">if</span>(x <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Existing.Customer&#34;</span>){
+    <span style="color:#a6e22e">return</span>(<span style="color:#ae81ff">0</span>)
+  } else {
+    <span style="color:#a6e22e">return</span>(<span style="color:#ae81ff">1</span>)
+  }
+}
+</code></pre></div><h2 id="2-análisis-exploratorio-de-datos-eda">2 Análisis exploratorio de datos (EDA)</h2>
+<p>Como se indica en la &ldquo;Descripción del proyecto&rdquo;, este paso tiene como objetivo descubrir los principales elementos responsables de la cancelación o no cancelación de los clientes del servicio de tarjeta de crédito. Para que esta primera sesión se lleve a cabo con éxito, aplicaré algunas técnicas estadísticas (Análisis Descriptivo) y visualización, que proporcionarán insights importantes y satisfactorios para continuar con el resto del análisis.</p>
+<h3 id="21-análisis-de-correlación---spearman">2.1 Análisis de correlación - Spearman</h3>
+<p>Para que este análisis no sea demasiado extenso, aplicaré la prueba estadística no paramétrica de Spearman, obteniendo así el coeficiente de correlación, que mide la dependencia estadística entre dos variables. De esta forma, podemos verificar desde el principio qué variables deben recibir más atención, ahorrando tiempo en el análisis de variables que no tienen una fuerte influencia en la tasa de clientes que abandonan el servicio de tarjetas de crédito.</p>
+<h4 id="cómo-calcular-el-coeficiente-de-correlación-de-spearman">Cómo calcular el coeficiente de correlación de Spearman</h4>
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/sc.png"/>
+</figure>
+
+<p>n = Número de puntos de datos para las dos variables</p>
+<p>di = Diferencia en el alcance del elemento &ldquo;n&rdquo;</p>
+<h4 id="interpretación-del-coeficiente-de-correlación-de-spearman">Interpretación del coeficiente de correlación de Spearman</h4>
+<p>El coeficiente de Spearman, ⍴, puede tener un valor entre +1 y -1 donde:</p>
+<ul>
+<li>
+<p>⍴ = +1$ → Significa una asociación de clasificación perfecta.</p>
+</li>
+<li>
+<p>⍴ = 0$   →  Significa que no hay asociación de clasificación.</p>
+</li>
+<li>
+<p>⍴ = -1$ → Significa una asociación negativa perfecta entre los intervalos.</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Obtención de la matriz de correlaciones con el método de Spearman</span>
+cor_spearman <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">cor</span>(BankChurners_cor[, <span style="color:#a6e22e">sapply</span>(BankChurners_cor, is.numeric)], method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;spearman&#39;</span>)
+<span style="color:#75715e">#Visualizando con un mapa de calor la matriz de correlación con el método pearson</span>
+<span style="color:#a6e22e">as.matrix</span>(<span style="color:#a6e22e">data.frame</span>(cor_spearman)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">round</span>(<span style="color:#ae81ff">3</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hchart</span>() <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_add_theme</span>(<span style="color:#a6e22e">hc_theme_smpl</span>()) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Coeficientes de correlación de Spearman&#34;</span>, align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_legend</span>(align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colorAxis</span>(stops <span style="color:#f92672">=</span> <span style="color:#a6e22e">color_stops</span>(colors <span style="color:#f92672">=</span> viridis<span style="color:#f92672">::</span><span style="color:#a6e22e">inferno</span>(<span style="color:#ae81ff">10</span>))) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_plotOptions</span>(
+                series <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(
+                        boderWidth <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
+                        dataLabels <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)))
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/coef_corr_sp.png"/>
+</figure>
+
+<p>Las variables que demuestran una asociación negativa considerable en relación al atributo dependiente, y que son objeto de investigación, son: Total_Trans_Ct, Total_Ct_Chng_Q4_Q1, Total_Revolving_Bal y Avg_Utilization_Ratio. Una asociación negativa (&lt;0) indica que el atributo tiene un nivel de importancia relevante en la permanencia del cliente.</p>
+<p>Con una asociación positiva tenemos las variables: Contacts_Count_12_mon y Months_inactive_112_mon.</p>
+<h4 id="22-número-de-cancelaciones-para-cada-categoría-de-variable-cualitativa">2.2 Número de cancelaciones para cada categoría de variable cualitativa</h4>
+<p>Antes de comenzar a analizar las variables cuantitativas, pasaré por los gráficos de treemap (técnica de visualización para representar datos jerárquicos mediante rectángulos anidados), para conocer el comportamiento de las variables categóricas del conjunto de datos. Más precisamente, investigaré qué categorías de variables cualitativas tienen el mayor número de cancelaciones de tarjetas de crédito.</p>
+<h4 id="con-los-gráficos-a-continuación-podemos-filtrar-la-siguiente-información">Con los gráficos a continuación podemos filtrar la siguiente información:</h4>
+<ul>
+<li>
+<p><!-- raw HTML omitted -->43.58%<!-- raw HTML omitted --> de las cancelaciones de tarjetas de crédito son de personas casadas y <!-- raw HTML omitted -->7.44%<!-- raw HTML omitted --> son de clientes que tienen el estado civil como divorciado.</p>
+</li>
+<li>
+<p><!-- raw HTML omitted -->37.62%<!-- raw HTML omitted --> de las cancelaciones de tarjetas de crédito son de personas con un ingreso anual menor a 40K y <!-- raw HTML omitted --> 7.74% <!-- raw HTML omitted --> son de clientes que tienen un ingreso anual mayor o igual a 120K.</p>
+</li>
+<li>
+<p><!-- raw HTML omitted --> 29.93% <!-- raw HTML omitted --> de las cancelaciones de tarjetas de crédito son de personas que se han graduado y el menor número de cancelaciones (<!-- raw HTML omitted --> 5.65% <!-- raw HTML omitted -->) son de clientes que tienen postdoctorado.</p>
+</li>
+<li>
+<p><!-- raw HTML omitted --> 93.36% <!-- raw HTML omitted --> de las cancelaciones de tarjetas de crédito son de clientes que tienen el tipo de tarjeta azul y el número más bajo de cancelaciones (<!-- raw HTML omitted --> 0.31% <!-- raw HTML omitted -->) son de clientes que tienen el tipo de tarjeta Platinum.</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Estado civil</span>
+a <span style="color:#f92672">&lt;-</span> BankChurners <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">filter</span>(Attrition_Flag <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Attrited Customer&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">count</span>(Marital_Status) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hchart</span>(<span style="color:#e6db74">&#34;treemap&#34;</span>, <span style="color:#a6e22e">hcaes</span>(x <span style="color:#f92672">=</span> Marital_Status, value <span style="color:#f92672">=</span> n, color <span style="color:#f92672">=</span> n)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colorAxis</span>(stops <span style="color:#f92672">=</span> <span style="color:#a6e22e">color_stops</span>(colors <span style="color:#f92672">=</span> viridis<span style="color:#f92672">::</span><span style="color:#a6e22e">inferno</span>(<span style="color:#ae81ff">10</span>))) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Número de cancelaciones por estado civil&#34;</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/est_civ.png"/>
+</figure>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Ingresos anuales</span>
+a<span style="color:#f92672">&lt;-</span>BankChurners <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(Attrition_Flag <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Attrited Customer&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(Income_Category) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hchart</span>(<span style="color:#e6db74">&#34;treemap&#34;</span>, <span style="color:#a6e22e">hcaes</span>(x <span style="color:#f92672">=</span> Income_Category, value <span style="color:#f92672">=</span> n, color <span style="color:#f92672">=</span> n)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_colorAxis</span>(stops <span style="color:#f92672">=</span> <span style="color:#a6e22e">color_stops</span>(colors <span style="color:#f92672">=</span> viridis<span style="color:#f92672">::</span><span style="color:#a6e22e">inferno</span>(<span style="color:#ae81ff">10</span>))) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Cantidad de cancelaciones por ingreso anual&#34;</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/ing_anu.png"/>
+</figure>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Nivel de educación</span>
+a<span style="color:#f92672">&lt;-</span>BankChurners <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(Attrition_Flag <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Attrited Customer&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(Education_Level) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hchart</span>(<span style="color:#e6db74">&#34;treemap&#34;</span>, <span style="color:#a6e22e">hcaes</span>(x <span style="color:#f92672">=</span> Education_Level, value <span style="color:#f92672">=</span> n, color <span style="color:#f92672">=</span> n)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_colorAxis</span>(stops <span style="color:#f92672">=</span> <span style="color:#a6e22e">color_stops</span>(colors <span style="color:#f92672">=</span> viridis<span style="color:#f92672">::</span><span style="color:#a6e22e">inferno</span>(<span style="color:#ae81ff">10</span>))) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Número de cancelaciones por nivel educativo&#34;</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/niv_edu.png"/>
+</figure>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Tipo de tarjeta</span>
+a<span style="color:#f92672">&lt;-</span>BankChurners <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(Attrition_Flag <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Attrited Customer&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(Card_Category) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hchart</span>(<span style="color:#e6db74">&#34;treemap&#34;</span>, <span style="color:#a6e22e">hcaes</span>(x <span style="color:#f92672">=</span> Card_Category, value <span style="color:#f92672">=</span> n, color <span style="color:#f92672">=</span> n)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_colorAxis</span>(stops <span style="color:#f92672">=</span> <span style="color:#a6e22e">color_stops</span>(colors <span style="color:#f92672">=</span> viridis<span style="color:#f92672">::</span><span style="color:#a6e22e">inferno</span>(<span style="color:#ae81ff">10</span>))) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Número de cancelaciones por tipo de tarjeta&#34;</span>, align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tip_tar.png"/>
+</figure>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Estado civil</span>
+BankChurners  <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">group_by</span>(Marital_Status) <span style="color:#f92672">%&gt;%</span>
+    <span style="color:#a6e22e">filter</span>(Attrition_Flag<span style="color:#f92672">==</span><span style="color:#e6db74">&#34;Attrited Customer&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+    <span style="color:#a6e22e">summarize</span>(NN<span style="color:#f92672">=</span><span style="color:#a6e22e">n</span>(), percent<span style="color:#f92672">=</span><span style="color:#a6e22e">round</span>((<span style="color:#a6e22e">n</span>()<span style="color:#f92672">/</span><span style="color:#a6e22e">nrow</span>(.)<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>),<span style="color:#ae81ff">2</span>))<span style="color:#f92672">%&gt;%</span>
+    <span style="color:#a6e22e">arrange</span>(<span style="color:#a6e22e">desc</span>(NN))
+</code></pre></div><p>A tibble: 4x3</p>
+<p>Marital_Status  |  NN | percent</p>
+<p>chr      |    int |  dbl</p>
+<p>1 Married  		|	 	709  | 43.6</p>
+<p>2 Single       		 |    668  | 41.1</p>
+<p>3 Unknown       |   129   | 7.93</p>
+<p>4 Divorced       |  121  |  7.44</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Ingresos anuales</span>
+BankChurners  <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">group_by</span>(Income_Category) <span style="color:#f92672">%&gt;%</span>
+    <span style="color:#a6e22e">filter</span>(Attrition_Flag<span style="color:#f92672">==</span><span style="color:#e6db74">&#34;Attrited Customer&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+    <span style="color:#a6e22e">summarize</span>(NN<span style="color:#f92672">=</span><span style="color:#a6e22e">n</span>(), percent<span style="color:#f92672">=</span><span style="color:#a6e22e">round</span>((<span style="color:#a6e22e">n</span>()<span style="color:#f92672">/</span><span style="color:#a6e22e">nrow</span>(.)<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>),<span style="color:#ae81ff">2</span>))<span style="color:#f92672">%&gt;%</span>
+    <span style="color:#a6e22e">arrange</span>(<span style="color:#a6e22e">desc</span>(NN))
+</code></pre></div><p>A tibble: 6 x 3</p>
+<p>Income_Category |   NN | percent</p>
+<p><!-- raw HTML omitted -->           <!-- raw HTML omitted -->   <!-- raw HTML omitted --></p>
+<p>1 Less than $40K	|    612   | 37.6</p>
+<p>2 $40K - $60K    |   271   |	16.7</p>
+<p>3 $80K - $120K    |  242   |	14.9</p>
+<p>4 $60K - $80K      | 189  | 11.6</p>
+<p>5 Unknown           |187 |  11.5</p>
+<p>6 $120K +           |126|    7.74</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Nivel de educación</span>
+BankChurners  <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">group_by</span>(Education_Level) <span style="color:#f92672">%&gt;%</span>
+    <span style="color:#a6e22e">filter</span>(Attrition_Flag<span style="color:#f92672">==</span><span style="color:#e6db74">&#34;Attrited Customer&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+    <span style="color:#a6e22e">summarize</span>(NN<span style="color:#f92672">=</span><span style="color:#a6e22e">n</span>(), percent<span style="color:#f92672">=</span><span style="color:#a6e22e">round</span>((<span style="color:#a6e22e">n</span>()<span style="color:#f92672">/</span><span style="color:#a6e22e">nrow</span>(.)<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>),<span style="color:#ae81ff">2</span>))<span style="color:#f92672">%&gt;%</span>
+    <span style="color:#a6e22e">arrange</span>(<span style="color:#a6e22e">desc</span>(NN))
+</code></pre></div><p>A tibble: 7 x 3</p>
+<p>Education_Level  |  NN | percent</p>
+<p><!-- raw HTML omitted -->           <!-- raw HTML omitted -->   <!-- raw HTML omitted --></p>
+<p>1 Graduate       |   487 |  29.9</p>
+<p>2 High School     |  306  | 18.8</p>
+<p>3 Unknown         |  256  | 15.7</p>
+<p>4 Uneducated     |   237  | 14.6</p>
+<p>5 College       |    154  |  9.47</p>
+<p>6 Doctorate    |      95  |  5.84</p>
+<p>7 Post-Graduate  |    92  |  5.65</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Tipo de tarjeta</span>
+BankChurners  <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">group_by</span>(Card_Category) <span style="color:#f92672">%&gt;%</span>
+    <span style="color:#a6e22e">filter</span>(Attrition_Flag<span style="color:#f92672">==</span><span style="color:#e6db74">&#34;Attrited Customer&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+    <span style="color:#a6e22e">summarize</span>(NN<span style="color:#f92672">=</span><span style="color:#a6e22e">n</span>(), percent<span style="color:#f92672">=</span><span style="color:#a6e22e">round</span>((<span style="color:#a6e22e">n</span>()<span style="color:#f92672">/</span><span style="color:#a6e22e">nrow</span>(.)<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>),<span style="color:#ae81ff">2</span>)) <span style="color:#f92672">%&gt;%</span>
+    <span style="color:#a6e22e">arrange</span>(<span style="color:#a6e22e">desc</span>(NN))
+</code></pre></div><p>A tibble: 4 x 3</p>
+<p>Card_Category  |  NN | percent</p>
+<p>1 Blue          | 1519  | 93.4</p>
+<p>2 Silver       |    82  |  5.04</p>
+<p>3 Gold        |     21  |  1.29</p>
+<p>4 Platinum   |       5  |  0.31</p>
+<!-- raw HTML omitted -->
+<h3 id="23-comportamiento-del-total-de-transacciones-realizadas-por-los-clientes">2.3 Comportamiento del total de transacciones realizadas por los clientes</h3>
+<p>Continuando, pero ahora analizando variables cuantitativas. Como se ve en la prueba estadística de Pearson, donde las variables &ldquo;Total_Trans_Ct&rdquo; tienen un coeficiente de correlación de -0,376, &ldquo;Total_Revolving_Bal&rdquo; con -0,241, &ldquo;Avg_Utilization_Ratio&rdquo; con 0,24 y &ldquo;Total_Ct_Chng_Q4_Q1&rdquo; con -0,312, lo que indica que todas influyen positivamente en la estancia de los clientes. Este apartado tiene como objetivo comprender el comportamiento de las variables cuantitativas enumeradas anteriormente en relación con la variable objetivo &ldquo;Attrition_Flag&rdquo;, que informa si el cliente ha abandonado el servicio de tarjeta o no.</p>
+<ul>
+<li>
+<p>Total_Trans_Ct: Recuento total de transacciones (últimos 12 meses)</p>
+</li>
+<li>
+<p>Total_Revolving_Bal: Saldo total de la tarjeta de crédito renovable</p>
+</li>
+<li>
+<p>Avg_Utilization_Ratio: Tarifa promedio por uso de la tarjeta</p>
+</li>
+<li>
+<p>Total_Ct_Chng_Q4_Q1: Cambio en el recuento de transacciones (Q4 sobre Q1)</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Transacciones totales del cliente</span>
+a <span style="color:#f92672">&lt;-</span> BankChurners <span style="color:#f92672">%&gt;%</span>
+  dplyr<span style="color:#f92672">::</span><span style="color:#a6e22e">select</span>(Total_Trans_Ct, Attrition_Flag) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">group_by</span>(Total_Trans_Ct, Attrition_Flag) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(Total_Trans_Ct) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">arrange</span>() <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hchart</span>(<span style="color:#e6db74">&#39;areaspline&#39;</span>, <span style="color:#a6e22e">hcaes</span>(x <span style="color:#f92672">=</span> Total_Trans_Ct, y <span style="color:#f92672">=</span> n, group <span style="color:#f92672">=</span> Attrition_Flag)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Total de transacciones (últimos 12 meses)&#34;</span>, align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_yAxis</span>(labels <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(format <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{value}&#34;</span>), title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Frequency&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_xAxis</span>(labels <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(format <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{value}&#34;</span>), title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Total Transactions&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#8B008B&#34;</span>, <span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FC4E07&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_add_theme</span>(<span style="color:#a6e22e">hc_theme_smpl</span>()) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_legend</span>(align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_tooltip</span>(formatter <span style="color:#f92672">=</span> <span style="color:#a6e22e">JS</span>(<span style="color:#e6db74">&#34;function(){
+</span><span style="color:#e6db74">                            return (&#39; &lt;br&gt; Frequency: &#39; + this.y + &#39; &lt;br&gt; Total Transactions: &#39; + this.x)}&#34;</span>))
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tot_trans.png"/>
+</figure>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#Saldo total de la tarjeta de crédito renovable</span>
+a<span style="color:#f92672">&lt;-</span> BankChurners <span style="color:#f92672">%&gt;%</span>
+  dplyr<span style="color:#f92672">::</span><span style="color:#a6e22e">select</span>(Total_Revolving_Bal, Attrition_Flag) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">group_by</span>(Total_Revolving_Bal, Attrition_Flag) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(Total_Revolving_Bal) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">arrange</span>() <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hchart</span>(<span style="color:#e6db74">&#39;areaspline&#39;</span>, <span style="color:#a6e22e">hcaes</span>(x <span style="color:#f92672">=</span> Total_Revolving_Bal, y <span style="color:#f92672">=</span> n, group <span style="color:#f92672">=</span> Attrition_Flag)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Saldo total de la tarjeta de crédito renovable&#34;</span>, align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_yAxis</span>(labels <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(format <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{value}&#34;</span>), title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Frequency&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_xAxis</span>(labels <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(format <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{value}&#34;</span>), title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Revolving balance&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#8B008B&#34;</span>, <span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FC4E07&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_add_theme</span>(<span style="color:#a6e22e">hc_theme_smpl</span>()) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_legend</span>(align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_tooltip</span>(formatter <span style="color:#f92672">=</span> <span style="color:#a6e22e">JS</span>(<span style="color:#e6db74">&#34;function(){
+</span><span style="color:#e6db74">                            return (&#39; &lt;br&gt; Frequency: &#39; + this.y + &#39; &lt;br&gt; Revolving balance: &#39; + this.x)}&#34;</span>))
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/sal_tot_ren.png"/>
+</figure>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#Tarifa promedio por uso de la tarjeta</span>
+a<span style="color:#f92672">&lt;-</span>BankChurners <span style="color:#f92672">%&gt;%</span>
+  dplyr<span style="color:#f92672">::</span><span style="color:#a6e22e">select</span>(Avg_Utilization_Ratio, Attrition_Flag) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">group_by</span>(Avg_Utilization_Ratio, Attrition_Flag) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(Avg_Utilization_Ratio) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">arrange</span>() <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hchart</span>(<span style="color:#e6db74">&#39;areaspline&#39;</span>, <span style="color:#a6e22e">hcaes</span>(x <span style="color:#f92672">=</span> Avg_Utilization_Ratio, y <span style="color:#f92672">=</span> n, group <span style="color:#f92672">=</span> Attrition_Flag)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Tarifa promedio por uso de la tarjeta&#34;</span>, align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_yAxis</span>(labels <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(format <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{value}&#34;</span>), title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Frequency&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_xAxis</span>(labels <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(format <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{value}&#34;</span>), title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Average card usage fee&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#8B008B&#34;</span>, <span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FC4E07&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_add_theme</span>(<span style="color:#a6e22e">hc_theme_smpl</span>()) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_legend</span>(align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_tooltip</span>(formatter <span style="color:#f92672">=</span> <span style="color:#a6e22e">JS</span>(<span style="color:#e6db74">&#34;function(){
+</span><span style="color:#e6db74">                            return (&#39; &lt;br&gt; Frequency: &#39; + this.y + &#39; &lt;br&gt; Average card usage fee: &#39; + this.x)}&#34;</span>))
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tar_pro.png"/>
+</figure>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e">#Cambio en el recuento de transacciones</span>
+a<span style="color:#f92672">&lt;-</span>BankChurners <span style="color:#f92672">%&gt;%</span>
+  dplyr<span style="color:#f92672">::</span><span style="color:#a6e22e">select</span>(Total_Ct_Chng_Q4_Q1, Attrition_Flag) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">group_by</span>(Total_Ct_Chng_Q4_Q1, Attrition_Flag) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">count</span>(Total_Ct_Chng_Q4_Q1) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">arrange</span>() <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hchart</span>(<span style="color:#e6db74">&#39;areaspline&#39;</span>, <span style="color:#a6e22e">hcaes</span>(x <span style="color:#f92672">=</span> Total_Ct_Chng_Q4_Q1, y <span style="color:#f92672">=</span> n, group <span style="color:#f92672">=</span> Attrition_Flag)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Cambio en el recuento de transacciones (Q4 sobre Q1)&#34;</span>, align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_yAxis</span>(labels <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(format <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{value}&#34;</span>), title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Frequency&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_xAxis</span>(labels <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(format <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{value}&#34;</span>), title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Change in transaction count (Q4 over Q1)&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#8B008B&#34;</span>, <span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FC4E07&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_add_theme</span>(<span style="color:#a6e22e">hc_theme_smpl</span>()) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_legend</span>(align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_tooltip</span>(formatter <span style="color:#f92672">=</span> <span style="color:#a6e22e">JS</span>(<span style="color:#e6db74">&#34;function(){
+</span><span style="color:#e6db74">                            return (&#39; &lt;br&gt; Frequency: &#39; + this.y + &#39; &lt;br&gt; Change in transaction count (Q4 over Q1): &#39; + this.x)}&#34;</span>))
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/rec_trans.png"/>
+</figure>
+
+<h3 id="24-análisis-de-las-transacciones-de-los-clientes">2.4 Análisis de las transacciones de los clientes</h3>
+<p>La variable Total_Trans_Ct, que representa el número total de transacciones en los últimos 12 meses, muestra un comportamiento interesante cuando se observa su distribución en relación a los clientes que dejaron y los que no dejaron los servicios de tarjetas de crédito. Para obtener más información sobre esta variable y cómo se relaciona con los otros atributos del conjunto de datos, en esta sesión realizaré algunas investigaciones.</p>
+<h4 id="241-transacciones-totales-en-los-últimos-12-meses-en-términos-de-porcentajes">2.4.1 transacciones totales en los últimos 12 meses en términos de porcentajes</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">a<span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hcboxplot</span>(outliers <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, x <span style="color:#f92672">=</span> BankChurners<span style="color:#f92672">$</span>Total_Trans_Ct, var <span style="color:#f92672">=</span> BankChurners<span style="color:#f92672">$</span>Attrition_Flag, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Length&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>, align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_yAxis</span>(title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Número de transacciones en los últimos 12 meses&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_add_theme</span>(<span style="color:#a6e22e">hc_theme_smpl</span>()) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_legend</span>(align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>)
+</code></pre></div><pre><code>Warning message:
+&quot;'hcboxplot' is deprecated.
+Use 'data_to_boxplot' instead.
+See help(&quot;Deprecated&quot;)&quot;
+</code></pre>
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/boxp.png"/>
+</figure>
+
+<p>Una forma de interpretar las medidas de separación del gráfico de diagrama de caja anterior es:</p>
+<ul>
+<li>
+<p><!-- raw HTML omitted -->50%<!-- raw HTML omitted --> de los clientes que dejaron los servicios de tarjetas de crédito tuvieron un número de transacciones en los últimos 12 meses menor o igual a 43, recordando que el número máximo de transacciones en los últimos 12 meses de clientes que dejaron el servicio es de 72. Mientras que la mediana de las personas que permanecieron con los servicios de tarjeta es de 71 transacciones.</p>
+</li>
+<li>
+<p><!-- raw HTML omitted -->75%<!-- raw HTML omitted --> de los clientes que dejaron los servicios de tarjetas de crédito tuvieron un número de transacciones en los últimos 12 meses igual o menor a 51. El tercer cuartil de personas que permanecieron con los servicios de tarjetas es de 82 transacciones.</p>
+</li>
+</ul>
+<h4 id="242-número-de-transacciones-en-los-últimos-12-meses-vs-valor-total-de-la-transacción-últimos-12-meses">2.4.2 Número de transacciones en los (últimos 12 meses) vs valor total de la transacción (últimos 12 meses)</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Separating the data</span>
+<span style="color:#a6e22e">set.seed</span>(<span style="color:#ae81ff">333</span>)
+intrain      <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">createDataPartition</span>(BankChurners<span style="color:#f92672">$</span>Attrition_Flag, p <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.7</span>, list <span style="color:#f92672">=</span> F)
+imbal_train  <span style="color:#f92672">&lt;-</span> BankChurners[intrain, ]
+
+a<span style="color:#f92672">&lt;-</span>imbal_train <span style="color:#f92672">%&gt;%</span>
+<span style="color:#a6e22e">hchart</span>(<span style="color:#e6db74">&#39;scatter&#39;</span>, <span style="color:#a6e22e">hcaes</span>(x <span style="color:#f92672">=</span> Total_Trans_Ct, y <span style="color:#f92672">=</span> Total_Trans_Amt, group <span style="color:#f92672">=</span> Attrition_Flag)) <span style="color:#f92672">%&gt;%</span>
+    <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#00AFBB&#34;</span>, <span style="color:#e6db74">&#34;#E7B800&#34;</span>, <span style="color:#e6db74">&#34;#FC4E07&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_add_theme</span>(<span style="color:#a6e22e">hc_theme_smpl</span>()) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_legend</span>(align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Total_Trans_Ct vs Total_Trans_Amt&#34;</span>, align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>)<span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_tooltip</span>(formatter <span style="color:#f92672">=</span> <span style="color:#a6e22e">JS</span>(<span style="color:#e6db74">&#34;function(){
+</span><span style="color:#e6db74">                            return (&#39; &lt;br&gt; Total transaction value (last 12 months): &#39; + this.y + &#39; &lt;br&gt; Total transaction count (last 12 months): &#39; + this.x)}&#34;</span>))
+
+</code></pre></div><h3 id="25-análisis-conjunto-de-los-atributos-cualitativos-de-los-clientes-de-cada-grupo">2.5 Análisis conjunto de los atributos cualitativos de los clientes de cada grupo</h3>
+<p>Este análisis tiene como objetivo describir, a través de un gráfico de barras, todas las características cualitativas de los clientes que han abandonado o no los servicios de tarjetas de crédito. Cada columna o rectángulo del gráfico representa el porcentaje relativo de una característica dada dentro del grupo (cliente existente o cliente perdido).</p>
+<p>Este tipo de gráfico permite filtrar el siguiente tipo de información: &ldquo;Del grupo de clientes que abandonaron el servicio de tarjeta de crédito, el <!-- raw HTML omitted --> 41,06% <!-- raw HTML omitted --> eran solteros, mientras que del grupo de personas que se quedó con un tarjeta de crédito, solo <!-- raw HTML omitted --> 38,53% <!-- raw HTML omitted --> eran solteros &ldquo;.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Función para obtener la frecuencia relativa de cada clase</span>
+atr_categorical <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(df, atr, grupo){
+
+  df <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(<span style="color:#a6e22e">round</span>(<span style="color:#a6e22e">prop.table</span>(<span style="color:#a6e22e">table</span>(df[atr])) <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">2</span>))
+  new_df <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(Class <span style="color:#f92672">=</span> df<span style="color:#f92672">$</span>Var1, Percent <span style="color:#f92672">=</span> df<span style="color:#f92672">$</span>Freq, Grupo <span style="color:#f92672">=</span> grupo)
+  <span style="color:#a6e22e">return</span>(new_df)
+}
+
+<span style="color:#75715e"># Obtener los nombres de las variables cualitativas del conjunto de datos y crear un marco de datos</span>
+cols <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">colnames</span>(BankChurners[,<span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>)])
+df   <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(Class <span style="color:#f92672">=</span> <span style="color:#a6e22e">character</span>(), Percent <span style="color:#f92672">=</span> <span style="color:#a6e22e">numeric</span>(), Grupo <span style="color:#f92672">=</span> <span style="color:#a6e22e">character</span>())
+df1   <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(Class <span style="color:#f92672">=</span> <span style="color:#a6e22e">character</span>(), Percent <span style="color:#f92672">=</span> <span style="color:#a6e22e">numeric</span>(), Grupo <span style="color:#f92672">=</span> <span style="color:#a6e22e">character</span>())
+df2   <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(Class <span style="color:#f92672">=</span> <span style="color:#a6e22e">character</span>(), Percent <span style="color:#f92672">=</span> <span style="color:#a6e22e">numeric</span>(), Grupo <span style="color:#f92672">=</span> <span style="color:#a6e22e">character</span>())
+
+<span style="color:#75715e"># Filtrar solo las observaciones de un grupo de clientes específico</span>
+df_attritedc <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">filter</span>(BankChurners, Attrition_Flag <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Attrited Customer&#34;</span>)
+df_existingc <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">filter</span>(BankChurners, Attrition_Flag <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Existing Customer&#34;</span>)
+
+<span style="color:#75715e"># Attrited Customer</span>
+<span style="color:#a6e22e">for</span>(coluna in cols){
+  df <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rbind</span>(df, <span style="color:#a6e22e">data.frame</span>(<span style="color:#a6e22e">rbind</span>(<span style="color:#a6e22e">atr_categorical</span>(df_attritedc, coluna, <span style="color:#e6db74">&#34;Attrited Customer&#34;</span>))))
+  df1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rbind</span>(df1, <span style="color:#a6e22e">data.frame</span>(<span style="color:#a6e22e">rbind</span>(<span style="color:#a6e22e">atr_categorical</span>(df_attritedc, coluna, <span style="color:#e6db74">&#34;Attrited Customer&#34;</span>))))
+}
+
+<span style="color:#75715e"># Existing Customer</span>
+<span style="color:#a6e22e">for</span>(coluna in cols){
+  df <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rbind</span>(df, <span style="color:#a6e22e">data.frame</span>(<span style="color:#a6e22e">rbind</span>(<span style="color:#a6e22e">atr_categorical</span>(df_attritedc, coluna, <span style="color:#e6db74">&#34;Attrited Customer&#34;</span>))))
+  df2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rbind</span>(df2, <span style="color:#a6e22e">data.frame</span>(<span style="color:#a6e22e">rbind</span>(<span style="color:#a6e22e">atr_categorical</span>(df_existingc, coluna, <span style="color:#e6db74">&#34;Existing Customer&#34;</span>))))
+}
+
+df1 <span style="color:#f92672">&lt;-</span> df1[df1<span style="color:#f92672">$</span>Class <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;Attrited Customer&#34;</span> <span style="color:#f92672">&amp;</span> df1<span style="color:#f92672">$</span>Class <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;Existing Customer&#34;</span>, ]
+df2 <span style="color:#f92672">&lt;-</span> df2[df2<span style="color:#f92672">$</span>Class <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;Attrited Customer&#34;</span> <span style="color:#f92672">&amp;</span> df2<span style="color:#f92672">$</span>Class <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;Existing Customer&#34;</span>, ]
+df  <span style="color:#f92672">&lt;-</span> df[df<span style="color:#f92672">$</span>Class <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;Attrited Customer&#34;</span> <span style="color:#f92672">&amp;</span> df<span style="color:#f92672">$</span>Class <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;Existing Customer&#34;</span>, ]
+
+a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">highchart</span>() <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_xAxis</span>(categories <span style="color:#f92672">=</span> df<span style="color:#f92672">$</span>Class) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_add_series</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Attrited Customer&#34;</span>, data <span style="color:#f92672">=</span> df1<span style="color:#f92672">$</span>Percent) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_add_series</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Existing Customer&#34;</span>, data <span style="color:#f92672">=</span> df2<span style="color:#f92672">$</span>Percent) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_chart</span>(type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;column&#34;</span>,
+           options3d <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, beta <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#8B008B&#34;</span>, <span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FC4E07&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_add_theme</span>(<span style="color:#a6e22e">hc_theme_bloom</span>()) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_legend</span>(align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Frecuencia relativa de las características cualitativas de cada grupo de clientes&#34;</span>,
+    style <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(fontWeight <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bold&#34;</span>, fontSize <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;25px&#34;</span>), align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_yAxis</span>(title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;%&#34;</span>))
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/frec.png"/>
+</figure>
+
+<p>En el gráfico anterior, donde el área de cada rectángulo representa la frecuencia relativa de una categoría dada que pertenece a una variable cualitativa. En cada una de las características presentadas en el eje x del gráfico, existe la frecuencia relativa de dos grupos distintos, que son: &lsquo;Attracted Customer&rsquo; (clientes que dejaron el servicio de tarjeta) y &lsquo;Existing Customer&rsquo; (clientes que permanecieron con los servicios de tarjetas de crédito) &lsquo;. Al observar el gráfico, se puede ver que al comparar los porcentajes de cada categoría entre las clases de Cliente atraído y Cliente existente, no hay ningún comportamiento que indique que los clientes con ciertas cualidades, como sex, marital status o educational backgrground, tengan más probabilidades de abandonar o quedarse con los servicios de tarjetas de crédito.</p>
+<p>Para profundizar en el análisis de las características de los atributos cualitativos de los clientes y tratar de encontrar algún patrón, agruparé todas las particularidades de los clientes que abandonaron los servicios de tarjetas de crédito y buscaré entre todas las combinaciones posibles dentro del espacio de atributos cualitativos del conjunto de datos, si hay un perfil con determinadas cualidades que destaca entre todos los demás, es decir, intentaré buscar un perfil de cliente con determinadas particularidades, que tenga un índice de evasión muy alejado de los demás.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">gp <span style="color:#f92672">&lt;-</span> BankChurners <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">filter</span>(Attrition_Flag <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Attrited Customer&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">select</span>(Attrition_Flag, Gender, Education_Level, Marital_Status, Income_Category, Card_Category) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">group_by</span>(Gender, Education_Level, Marital_Status, Income_Category, Card_Category) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">count</span>(Attrition_Flag) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">select</span>(Gender, Education_Level, Marital_Status, Income_Category, Card_Category, n) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">arrange</span>(<span style="color:#a6e22e">desc</span>(n))
+
+gp<span style="color:#f92672">$</span>Relative.Frequency <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">round</span>(<span style="color:#a6e22e">prop.table</span>(gp<span style="color:#f92672">$</span>n) <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">2</span>)
+gp<span style="color:#f92672">$</span>n <span style="color:#f92672">=</span> <span style="color:#66d9ef">NULL</span>
+
+a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">datatable</span>(gp)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/gp.png"/>
+</figure>
+
+<p>Si bien es necesario tener en cuenta otras variables para que sea posible realizar afirmaciones concretas, con la tabla de grupos de características y sus respectivos porcentajes relativos, tenemos, en base a atributos cualitativos de los clientes, de 275 combinaciones diferentes de características de atributos cualitativos <!-- raw HTML omitted --> 9,78% <!-- raw HTML omitted --> de los perfiles responsables de dejar los servicios de tarjetas son:</p>
+<ul>
+<li>
+<p><!-- raw HTML omitted --> 4.92% <!-- raw HTML omitted --> son mujeres, nivel educativo de pregrado, estado civil soltera, ingresos anuales de menos de $ 40K y tipo de tarjeta azul.</p>
+</li>
+<li>
+<p><!-- raw HTML omitted --> 4.86% <!-- raw HTML omitted --> son mujeres, nivel educativo de pregrado, estado civil casada, ingresos anuales de menos de $ 40K y tipo de tarjeta azul.</p>
+</li>
+</ul>
+<p>Para ver los perfiles que es menos probable que abandonen los servicios de tarjetas, simplemente vaya a las últimas notas en la tabla anterior.</p>
+<h2 id="3-ingeniería-de-factores">3 Ingeniería de factores</h2>
+<p>Todas las decisiones tomadas en el proceso de ingeniería de recursos fueron las que pensé que eran las mejores para preparar los datos para el proceso de aprendizaje automático. Usaré técnicas básicas, como la prohibición de datos para reducir la gran cantidad de valores únicos, la codificación one hot encoding para variables cualitativas nominales y la aplicación de la técnica de sobremuestreo minoritario sintético para equilibrar las clases en los datos de entrenamiento.</p>
+<h4 id="31-agrupar-datos-en-contenedores">3.1 Agrupar datos en contenedores</h4>
+<p>La agrupación de datos es un método de preprocesamiento de datos que se utiliza para minimizar los efectos de pequeños errores de observación. Los valores de los datos originales se dividen en pequeños intervalos conocidos como contenedores y luego se reemplazan por un valor calculado general para ese contenedor. Esto tiene un efecto de suavizado en los datos de entrada y también puede reducir las posibilidades de sobreajuste para conjuntos de datos pequeños.</p>
+<p>Hay 2 métodos para dividir los datos en cuadros</p>
+<ul>
+<li>
+<ol>
+<li>Intervalos de igual frecuencia: Las agrupaciones tienen la misma frecuencia.</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>Intervalos de igual ancho: Las agrupaciones tienen el mismo ancho con un intervalo de cada recipiente definido como [min + w], [min + 2w]…. [min + nw] donde w = (max - min) / (número de cajas).</li>
+</ol>
+</li>
+</ul>
+<p>Para definir el número de agrupaciones, usaré la regla de Sturges que nos permite crear clases de amplitud fija a partir de la siguiente ecuación:</p>
+<p>Regla de Sturges</p>
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/sturges.PNG"/>
+</figure>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Crear una copia del conjunto de datos</span>
+data <span style="color:#f92672">&lt;-</span> BankChurners
+
+<span style="color:#75715e"># Aplicando la regla de sturges para obtener el número de intervalos</span>
+n <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">nrow</span>(data)
+k <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">round</span>((<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> (<span style="color:#ae81ff">10</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">3</span>) <span style="color:#f92672">*</span> <span style="color:#a6e22e">log10</span>(n))) <span style="color:#75715e"># 14 Grupos</span>
+
+<span style="color:#75715e"># Creando nuevas columnas con los valores agrupados</span>
+cols     <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">colnames</span>(data[, <span style="color:#a6e22e">sapply</span>(data, is.numeric)])
+new_cols <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">unlist</span>(<span style="color:#a6e22e">lapply</span>(cols, <span style="color:#a6e22e">function</span>(x) <span style="color:#a6e22e">paste</span>(x, <span style="color:#e6db74">&#34;_f&#34;</span>, sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>)))
+
+<span style="color:#75715e"># Crear grupos con la función data_binning</span>
+data_binning <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(x, k){
+
+  gp <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">cut</span>(x, breaks <span style="color:#f92672">=</span> k, include.lowest <span style="color:#f92672">=</span> T, ordered_result <span style="color:#f92672">=</span> T)
+  <span style="color:#a6e22e">return</span>(gp)
+}
+data[, new_cols] <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">Map</span>(<span style="color:#a6e22e">function</span>(x, k) <span style="color:#a6e22e">as.factor</span>(<span style="color:#a6e22e">data_binning</span>(data[, x], k)), cols, k)
+</code></pre></div><h4 id="311-i">3.1.1 I</h4>
+<h5 id="3111-total_trans_ct">3.1.1.1 Total_Trans_Ct</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">h1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hchart</span>(<span style="color:#a6e22e">hist</span>(data<span style="color:#f92672">$</span>Total_Trans_Ct, breaks <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>, plot <span style="color:#f92672">=</span> F),
+             type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;histogram&#39;</span>, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Total_Trans_Ct&#39;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_yAxis</span>(title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>))
+
+h2 <span style="color:#f92672">&lt;-</span> data <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">select</span>(Total_Trans_Ct_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">group_by</span>(Total_Trans_Ct_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">count</span>()
+
+h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchart</span>() <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_chart</span>(type <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;column&#34;</span>, options3d <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, beta <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_xAxis</span>(categories <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>Total_Trans_Ct_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_add_series</span>(data <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>n, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Total_Trans_Ct_f&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
+
+a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tota_tra_2.png"/>
+</figure>
+
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tot_tra_f.png"/>
+</figure>
+
+<h5 id="3112-avg_utilization_ratio">3.1.1.2 Avg_Utilization_Ratio</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">h1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hchart</span>(<span style="color:#a6e22e">hist</span>(data<span style="color:#f92672">$</span>Avg_Utilization_Ratio, breaks <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>, plot <span style="color:#f92672">=</span> F),
+             type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;histogram&#39;</span>, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Avg_Utilization_Ratio&#39;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_yAxis</span>(title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>))
+
+h2 <span style="color:#f92672">&lt;-</span> data <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">select</span>(Avg_Utilization_Ratio_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">group_by</span>(Avg_Utilization_Ratio_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">count</span>()
+
+h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchart</span>() <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_chart</span>(type <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;column&#34;</span>, options3d <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, beta <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_xAxis</span>(categories <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>Avg_Utilization_Ratio_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_add_series</span>(data <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>n, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Avg_Utilization_Ratio_f&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
+
+a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/avg_ut_ra.png"/>
+</figure>
+
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/avg_f.png"/>
+</figure>
+
+<h5 id="3113-total_ct_chng_q4_q1">3.1.1.3 Total_Ct_Chng_Q4_Q1</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">h1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hchart</span>(<span style="color:#a6e22e">hist</span>(data<span style="color:#f92672">$</span>Total_Ct_Chng_Q4_Q1, breaks <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>, plot <span style="color:#f92672">=</span> F),
+             type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;histogram&#39;</span>, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Total_Ct_Chng_Q4_Q1&#39;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_yAxis</span>(title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>))
+
+h2 <span style="color:#f92672">&lt;-</span> data <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">select</span>(Total_Ct_Chng_Q4_Q1_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">group_by</span>(Total_Ct_Chng_Q4_Q1_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">count</span>()
+
+h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchart</span>() <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_chart</span>(type <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;column&#34;</span>, options3d <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, beta <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_xAxis</span>(categories <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>Total_Ct_Chng_Q4_Q1_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_add_series</span>(data <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>n, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Total_Ct_Chng_Q4_Q1_f&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
+
+a <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tot_ct_2.png"/>
+</figure>
+
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tot_ct_2_f.png"/>
+</figure>
+
+<h5 id="3114-total_trans_amt">3.1.1.4 Total_Trans_Amt</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">h1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hchart</span>(<span style="color:#a6e22e">hist</span>(data<span style="color:#f92672">$</span>Total_Trans_Amt, breaks <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>, plot <span style="color:#f92672">=</span> F),
+             type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;histogram&#39;</span>, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Total_Trans_Amt&#39;</span>) <span style="color:#f92672">%&gt;%</span>
+      <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+      <span style="color:#a6e22e">hc_yAxis</span>(title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>))
+
+h2 <span style="color:#f92672">&lt;-</span> data <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">select</span>(Total_Trans_Amt_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">group_by</span>(Total_Trans_Amt_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">count</span>()
+
+h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchart</span>() <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_chart</span>(type <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;column&#34;</span>, options3d <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, beta <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_xAxis</span>(categories <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>Total_Trans_Amt_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_add_series</span>(data <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>n, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Total_Trans_Amt_f&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
+
+a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tot_trans_2.png"/>
+</figure>
+
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tot_trans_f.png"/>
+</figure>
+
+<h4 id="312-ii">3.1..2 II</h4>
+<h5 id="3121-total_amt_chng_q4_q1">3.1.2.1 Total_Amt_Chng_Q4_Q1</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">h1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hchart</span>(<span style="color:#a6e22e">hist</span>(data<span style="color:#f92672">$</span>Total_Amt_Chng_Q4_Q1, breaks <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>, plot <span style="color:#f92672">=</span> F),
+             type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;histogram&#39;</span>, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Total_Amt_Chng_Q4_Q1&#39;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_yAxis</span>(title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>))
+
+h2 <span style="color:#f92672">&lt;-</span> data <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">select</span>(Total_Amt_Chng_Q4_Q1_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">group_by</span>(Total_Amt_Chng_Q4_Q1_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">count</span>()
+
+h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchart</span>() <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_chart</span>(type <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;column&#34;</span>, options3d <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, beta <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_xAxis</span>(categories <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>Total_Amt_Chng_Q4_Q1_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_add_series</span>(data <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>n, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Total_Amt_Chng_Q4_Q1_f&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
+
+a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tota_amt_2.png"/>
+</figure>
+
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tot_amt_f.png"/>
+</figure>
+
+<h5 id="3122-avg_open_to_buy">3.1.2.2 Avg_Open_To_Buy</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">h1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hchart</span>(<span style="color:#a6e22e">hist</span>(data<span style="color:#f92672">$</span>Avg_Open_To_Buy, breaks <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>, plot <span style="color:#f92672">=</span> F),
+             type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;histogram&#39;</span>, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Avg_Open_To_Buy&#39;</span>) <span style="color:#f92672">%&gt;%</span>
+      <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+      <span style="color:#a6e22e">hc_yAxis</span>(title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>))
+
+h2 <span style="color:#f92672">&lt;-</span> data <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">select</span>(Avg_Open_To_Buy_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">group_by</span>(Avg_Open_To_Buy_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">count</span>()
+
+h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchart</span>() <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_chart</span>(type <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;column&#34;</span>, options3d <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, beta <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_xAxis</span>(categories <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>Avg_Open_To_Buy_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_add_series</span>(data <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>n, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Avg_Open_To_Buy_f&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
+
+a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/avg_buy_2.png"/>
+</figure>
+
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/avg_buy_f.png"/>
+</figure>
+
+<h5 id="3123-total_revolving_bal">3.1.2.3 Total_Revolving_Bal</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">h1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hchart</span>(<span style="color:#a6e22e">hist</span>(data<span style="color:#f92672">$</span>Total_Revolving_Bal, breaks <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>, plot <span style="color:#f92672">=</span> F),
+             type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;histogram&#39;</span>, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Total_Revolving_Bal&#39;</span>) <span style="color:#f92672">%&gt;%</span>
+      <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+      <span style="color:#a6e22e">hc_yAxis</span>(title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>))
+
+h2 <span style="color:#f92672">&lt;-</span> data <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">select</span>(Total_Revolving_Bal_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">group_by</span>(Total_Revolving_Bal_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">count</span>()
+
+h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchart</span>() <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_chart</span>(type <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;column&#34;</span>, options3d <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, beta <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_xAxis</span>(categories <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>Total_Revolving_Bal_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_add_series</span>(data <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>n, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Total_Revolving_Bal_f&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
+
+a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tot_rel_2.png"/>
+</figure>
+
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tot_rel_f.png"/>
+</figure>
+
+<h5 id="3124-credit_limit">3.1.2.4 Credit_Limit</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">h1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hchart</span>(<span style="color:#a6e22e">hist</span>(data<span style="color:#f92672">$</span>Credit_Limit, breaks <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>, plot <span style="color:#f92672">=</span> F),
+             type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;histogram&#39;</span>, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Credit_Limit&#39;</span>) <span style="color:#f92672">%&gt;%</span>
+      <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+      <span style="color:#a6e22e">hc_yAxis</span>(title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>))
+
+h2 <span style="color:#f92672">&lt;-</span> data <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">select</span>(Credit_Limit_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">group_by</span>(Credit_Limit_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">count</span>()
+
+h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchart</span>() <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_chart</span>(type <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;column&#34;</span>, options3d <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, beta <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_xAxis</span>(categories <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>Credit_Limit_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_add_series</span>(data <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>n, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Credit_Limit_f&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
+
+a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/cre_lim_2.png"/>
+</figure>
+
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/cre_lim_2_f.png"/>
+</figure>
+
+<h4 id="313-iii">3.1.3 III</h4>
+<h4 id="3131-contacts_count_12_mon">3.1.3.1 Contacts_Count_12_mon</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">h1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hchart</span>(<span style="color:#a6e22e">hist</span>(data<span style="color:#f92672">$</span>Contacts_Count_12_mon, breaks <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>, plot <span style="color:#f92672">=</span> F),
+             type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;histogram&#39;</span>, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Contacts_Count_12_mon&#39;</span>) <span style="color:#f92672">%&gt;%</span>
+      <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+      <span style="color:#a6e22e">hc_yAxis</span>(title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>))
+
+h2 <span style="color:#f92672">&lt;-</span> data <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">select</span>(Contacts_Count_12_mon_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">group_by</span>(Contacts_Count_12_mon_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">count</span>()
+
+h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchart</span>() <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_chart</span>(type <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;column&#34;</span>, options3d <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, beta <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_xAxis</span>(categories <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>Contacts_Count_12_mon_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_add_series</span>(data <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>n, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Contacts_Count_12_mon_f&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
+
+a <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/con_cou_2.png"/>
+</figure>
+
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/con_cou_f.png"/>
+</figure>
+
+<h4 id="3132-months_inactive_12_mon">3.1.3.2 Months_Inactive_12_mon</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">h1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hchart</span>(<span style="color:#a6e22e">hist</span>(data<span style="color:#f92672">$</span>Months_Inactive_12_mon, breaks <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>, plot <span style="color:#f92672">=</span> F),
+             type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;histogram&#39;</span>, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Months_Inactive_12_mon&#39;</span>) <span style="color:#f92672">%&gt;%</span>
+      <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+      <span style="color:#a6e22e">hc_yAxis</span>(title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>))
+
+h2 <span style="color:#f92672">&lt;-</span> data <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">select</span>(Months_Inactive_12_mon_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">group_by</span>(Months_Inactive_12_mon_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">count</span>()
+
+h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchart</span>() <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_chart</span>(type <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;column&#34;</span>, options3d <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, beta <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_xAxis</span>(categories <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>Months_Inactive_12_mon_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_add_series</span>(data <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>n, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Months_Inactive_12_mon_f&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
+
+aa<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/mon_ina_2.png"/>
+</figure>
+
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/mon_ina_f.png"/>
+</figure>
+
+<h4 id="3133-total_relationship_count">3.1.3.3 Total_Relationship_Count</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">h1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hchart</span>(<span style="color:#a6e22e">hist</span>(data<span style="color:#f92672">$</span>Total_Relationship_Count, breaks <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>, plot <span style="color:#f92672">=</span> F),
+             type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;histogram&#39;</span>, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Total_Relationship_Count&#39;</span>) <span style="color:#f92672">%&gt;%</span>
+      <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+      <span style="color:#a6e22e">hc_yAxis</span>(title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>))
+
+h2 <span style="color:#f92672">&lt;-</span> data <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">select</span>(Total_Relationship_Count_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">group_by</span>(Total_Relationship_Count_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">count</span>()
+
+h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchart</span>() <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_chart</span>(type <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;column&#34;</span>, options3d <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, beta <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_xAxis</span>(categories <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>Total_Relationship_Count_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_add_series</span>(data <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>n, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Total_Relationship_Count_f&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_add_theme</span>(<span style="color:#a6e22e">hc_theme_smpl</span>())
+
+a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tota_rev_2.png"/>
+</figure>
+
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/tota_rev_f.png"/>
+</figure>
+
+<h4 id="314-iv">3.1.4 IV</h4>
+<h5 id="3141-months_on_book">3.1.4.1 Months_on_book</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">h1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hchart</span>(<span style="color:#a6e22e">hist</span>(data<span style="color:#f92672">$</span>Months_on_book, breaks <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>, plot <span style="color:#f92672">=</span> F),
+             type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;histogram&#39;</span>, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Months_on_book&#39;</span>) <span style="color:#f92672">%&gt;%</span>
+      <span style="color:#a6e22e">hc_yAxis</span>(title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
+
+h2 <span style="color:#f92672">&lt;-</span> data <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">select</span>(Months_on_book_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">group_by</span>(Months_on_book_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">count</span>()
+
+h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchart</span>() <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_chart</span>(type <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;column&#34;</span>, options3d <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, beta <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_xAxis</span>(categories <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>Months_on_book_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_add_series</span>(data <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>n, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Months_on_book_f&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_add_theme</span>(<span style="color:#a6e22e">hc_theme_smpl</span>())
+
+aa<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/mon_on_b_2.png"/>
+</figure>
+
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/mon_on_b_ff.png"/>
+</figure>
+
+<h5 id="3142-dependent_count">3.1.4.2 Dependent_count</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">h1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hchart</span>(<span style="color:#a6e22e">hist</span>(data<span style="color:#f92672">$</span>Dependent_count, breaks <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>, plot <span style="color:#f92672">=</span> F),
+             type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;histogram&#39;</span>, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Dependent_count&#39;</span>) <span style="color:#f92672">%&gt;%</span>
+      <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+      <span style="color:#a6e22e">hc_yAxis</span>(title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>))
+
+h2 <span style="color:#f92672">&lt;-</span> data <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">select</span>(Dependent_count_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">group_by</span>(Dependent_count_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">count</span>()
+
+h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchart</span>() <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_chart</span>(type <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;column&#34;</span>, options3d <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, beta <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_xAxis</span>(categories <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>Dependent_count_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_add_series</span>(data <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>n, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Dependent_count_f&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_add_theme</span>(<span style="color:#a6e22e">hc_theme_smpl</span>())
+
+a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/dep_cou_2.png"/>
+</figure>
+
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/dep_cou_ff.png"/>
+</figure>
+
+<h5 id="3143-customer_age">3.1.4.3 Customer_Age</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">h1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">hchart</span>(<span style="color:#a6e22e">hist</span>(BankChurners<span style="color:#f92672">$</span>Customer_Age, breaks <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>, plot <span style="color:#f92672">=</span> F),
+             type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;histogram&#39;</span>, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Customer_Age&#39;</span>) <span style="color:#f92672">%&gt;%</span>
+      <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+      <span style="color:#a6e22e">hc_yAxis</span>(title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>))
+
+h2 <span style="color:#f92672">&lt;-</span> data <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">select</span>(Customer_Age_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">group_by</span>(Customer_Age_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">count</span>()
+
+h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">highchart</span>() <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_chart</span>(type <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;column&#34;</span>, options3d <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, beta <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>)) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_xAxis</span>(categories <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>Customer_Age_f) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_add_series</span>(data <span style="color:#f92672">=</span> h2<span style="color:#f92672">$</span>n, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Customer_Age_f&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colors</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;#FF4500&#34;</span>, <span style="color:#e6db74">&#34;#FFD700&#34;</span>, <span style="color:#e6db74">&#34;#008080&#34;</span>, <span style="color:#e6db74">&#34;#006400&#34;</span>, <span style="color:#e6db74">&#34;#1C1C1C&#34;</span>, <span style="color:#e6db74">&#34;#B8860B&#34;</span>))
+
+a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/cus_age_2.png"/>
+</figure>
+
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/cus_age_f.png"/>
+</figure>
+
+<h3 id="32-one-hot-encoding">3.2 One Hot Encoding</h3>
+<p>Las variables utilizadas para el proceso One Hot Encoding serán únicamente las cualitativas nominales, que son: Gender y Marital_Status.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Selecting only the variables that will be used for modeling</span>
+cols <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Attrition_Flag&#34;</span>, <span style="color:#e6db74">&#34;Gender&#34;</span>, <span style="color:#e6db74">&#34;Education_Level&#34;</span>, <span style="color:#e6db74">&#34;Marital_Status&#34;</span>, <span style="color:#e6db74">&#34;Income_Category&#34;</span>, <span style="color:#e6db74">&#34;Card_Category&#34;</span>, new_cols)
+data <span style="color:#f92672">&lt;-</span> data[, cols]
+
+<span style="color:#75715e"># Creating dummy variables</span>
+vars_dummy <span style="color:#f92672">&lt;-</span> data[, <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Gender&#34;</span>, <span style="color:#e6db74">&#34;Marital_Status&#34;</span>)]
+dummy      <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dummyVars</span>(<span style="color:#e6db74">&#34;~.&#34;</span>, data <span style="color:#f92672">=</span> vars_dummy)
+dummy_     <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">predict</span>(dummy, vars_dummy)
+
+<span style="color:#75715e"># Concatenating the new dummy variables in the dataset</span>
+data <span style="color:#f92672">&lt;-</span> dplyr<span style="color:#f92672">::</span><span style="color:#a6e22e">select</span>(<span style="color:#a6e22e">cbind</span>(data, dummy_), <span style="color:#f92672">-</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Gender&#34;</span>, <span style="color:#e6db74">&#34;Marital_Status&#34;</span>))
+</code></pre></div><h3 id="33-sobremuestreo">3.3 Sobremuestreo</h3>
+<p>Para corregir el problema de desequilibrar las clases del conjunto de datos, usaré el método &ldquo;smote&rdquo;.</p>
+<p><strong>SMOTE</strong></p>
+<p>SMOTE son las siglas de Synthetic Minority Oversampling Technique(Técnica de sobremuestreo de minorías sintéticas). Esta es una técnica estadística para aumentar el número de casos en su conjunto de datos de forma equilibrada. El módulo funciona generando nuevas instancias a partir de casos minoritarios existentes que usted proporciona como entrada. Esta implementación de SMOTE no cambia el número de casos mayoritarios.</p>
+<p>Las nuevas instancias no son solo copias de casos de minorías existentes; en su lugar, el algoritmo toma muestras del espacio de características para cada clase de destino y sus vecinos más cercanos, y genera nuevos ejemplos que combinan características del caso de destino con características de sus vecinos. Este enfoque aumenta las funciones disponibles para cada clase y hace que las muestras sean más generales.</p>
+<p>SMOTE toma todo el conjunto de datos como entrada, pero aumenta el porcentaje solo de los casos minoritarios. Por ejemplo, suponga que tiene un conjunto de datos desequilibrado en el que solo el 1% de los casos tiene el valor objetivo A (la clase minoritaria) y el 99% de los casos tiene el valor B. Para aumentar el porcentaje de casos de minorías al doble del porcentaje anterior, debe ingresar 200 para el porcentaje SMOTE en las propiedades del módulo.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Eliminando la columna Attrition_Flag original</span>
+data<span style="color:#f92672">$</span>Attrition_Flag <span style="color:#f92672">=</span> <span style="color:#66d9ef">NULL</span>
+
+<span style="color:#75715e">#convvirtiendo a factor education level, income_category, card_category</span>
+data<span style="color:#f92672">$</span>Education_Level <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.factor</span>(data<span style="color:#f92672">$</span>Education_Level)
+data<span style="color:#f92672">$</span>Income_Category <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.factor</span>(data<span style="color:#f92672">$</span>Income_Category)
+data<span style="color:#f92672">$</span>Card_Category <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.factor</span>(data<span style="color:#f92672">$</span>Card_Category)
+
+<span style="color:#75715e"># Transformar las variables independientes al tipo numérico</span>
+data[, ] <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">sapply</span>(data[, ], as.numeric)
+
+<span style="color:#75715e"># Class name changes using the original dataset</span>
+data<span style="color:#f92672">$</span>Class <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.factor</span>(<span style="color:#a6e22e">make.names</span>(BankChurners<span style="color:#f92672">$</span>Attrition_Flag))
+
+<span style="color:#75715e"># Cambios de nombre de clase usando el conjunto de datos original</span>
+<span style="color:#a6e22e">set.seed</span>(<span style="color:#ae81ff">333</span>)
+intrain      <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">createDataPartition</span>(data<span style="color:#f92672">$</span>Class, p <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.8</span>, list <span style="color:#f92672">=</span> F)
+imbal_train  <span style="color:#f92672">&lt;-</span> data[intrain, ]
+imbal_test   <span style="color:#f92672">&lt;-</span> data[<span style="color:#f92672">-</span>intrain, ]
+
+<span style="color:#75715e"># aplicando - SMOTE</span>
+<span style="color:#a6e22e">set.seed</span>(<span style="color:#ae81ff">333</span>)
+smote_train <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">SMOTE</span>(Class <span style="color:#f92672">~</span> ., data  <span style="color:#f92672">=</span> imbal_train)
+
+ctrl <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">trainControl</span>(method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;repeatedcv&#34;</span>, repeats <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>,
+                     classProbs <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>,
+                     summaryFunction <span style="color:#f92672">=</span> twoClassSummary)
+
+<span style="color:#75715e"># SMOTE</span>
+smote_outside <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">train</span>(Class <span style="color:#f92672">~</span> ., data <span style="color:#f92672">=</span> smote_train,
+                       method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;treebag&#34;</span>,
+                       na.action <span style="color:#f92672">=</span> na.roughfix,
+                       nbagg <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>,
+                       metric <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ROC&#34;</span>,
+                       trControl <span style="color:#f92672">=</span> ctrl)
+
+<span style="color:#75715e"># Resumen</span>
+smote_outside
+</code></pre></div><pre><code>Bagged CART
+
+9114 samples
+  23 predictor
+   2 classes: 'Attrited.Customer', 'Existing.Customer'
+
+No pre-processing
+Resampling: Cross-Validated (10 fold, repeated 5 times)
+Summary of sample sizes: 8202, 8202, 8203, 8203, 8203, 8203, ...
+Resampling results:
+
+  ROC       Sens       Spec     
+  0.992766  0.9486421  0.9743856
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">h1 <span style="color:#f92672">=</span> imbal_train <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">select</span>(Class) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">group_by</span>(Class) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">summarise</span>(CNT <span style="color:#f92672">=</span> <span style="color:#a6e22e">n</span>())
+
+h1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">billboarder</span>() <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">bb_piechart</span>(h1) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">bb_legend</span>(position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;right&#39;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">bb_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Original Data&#34;</span>, padding <span style="color:#f92672">=</span> <span style="color:#66d9ef">NULL</span>, position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>)
+
+h2 <span style="color:#f92672">=</span> smote_train <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">select</span>(Class) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">group_by</span>(Class) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">summarise</span>(CNT <span style="color:#f92672">=</span> <span style="color:#a6e22e">n</span>())
+
+h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">billboarder</span>() <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">bb_piechart</span>(h2) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">bb_legend</span>(position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;right&#39;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">bb_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SMOTE Applied&#34;</span>, padding <span style="color:#f92672">=</span> <span style="color:#66d9ef">NULL</span>, position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>)
+
+a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(h1, h2, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/ori_dat.png"/>
+</figure>
+
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/smo_ap.png"/>
+</figure>
+
+<h2 id="4-selección-de-características">4. Selección de características</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Creando una copia de los datos de entrenamiento</span>
+smote_train_c       <span style="color:#f92672">&lt;-</span> smote_train
+smote_train_c<span style="color:#f92672">$</span>Class <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">sapply</span>(smote_train<span style="color:#f92672">$</span>Class, sub_target1)
+
+<span style="color:#75715e"># Aplicando el algoritmo de random forest para clasificación</span>
+fit <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(Class <span style="color:#f92672">~</span> ., method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;rf&#34;</span>, data <span style="color:#f92672">=</span> smote_train_c)
+
+<span style="color:#75715e"># Creando un DataFrame con información sobre la importancia de cada atributo</span>
+best_vars <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(Var <span style="color:#f92672">=</span> <span style="color:#a6e22e">row.names</span>(<span style="color:#a6e22e">varImp</span>(fit)), Import <span style="color:#f92672">=</span> <span style="color:#a6e22e">varImp</span>(fit)<span style="color:#f92672">$</span>Overall)
+
+<span style="color:#75715e"># Ver las puntuaciones de las variables</span>
+a<span style="color:#f92672">&lt;-</span>best_vars <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">arrange</span>(<span style="color:#a6e22e">desc</span>(Import)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hchart</span>(type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bar&#34;</span>, <span style="color:#a6e22e">hcaes</span>(x <span style="color:#f92672">=</span> Var, y <span style="color:#f92672">=</span> <span style="color:#a6e22e">round</span>(Import, <span style="color:#ae81ff">2</span>)), borderColor <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;black&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_add_theme</span>(<span style="color:#a6e22e">hc_theme_bloom</span>()) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_xAxis</span>(title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Variables&#34;</span>)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">hc_yAxis</span>(title <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Importancia&#34;</span>))
+</code></pre></div><pre><code>Warning message in lm(Class ~ ., method = &quot;rf&quot;, data = smote_train_c):
+&quot;method = 'rf' is not supported. Using 'qr'&quot;
+</code></pre>
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/imp.png"/>
+</figure>
+
+<h2 id="5-aprendizaje-automático--xgbtree">5. Aprendizaje automático | xgbTree</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Sembrando una semilla aleatoria</span>
+<span style="color:#a6e22e">set.seed</span>(<span style="color:#ae81ff">333</span>)
+
+<span style="color:#75715e"># Seleccionar solo variables con importancia&gt; 0,1</span>
+variables_for_model <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">filter</span>(best_vars, Import <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0.1</span>)<span style="color:#f92672">$</span>Var
+
+<span style="color:#75715e"># Seleccionar solo los atributos de interés para el proceso de entrenamiento y prueba</span>
+training <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">select</span>(smote_train, <span style="color:#a6e22e">c</span>(variables_for_model, <span style="color:#e6db74">&#34;Class&#34;</span>))
+testing  <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">select</span>(imbal_test,  <span style="color:#a6e22e">c</span>(variables_for_model, <span style="color:#e6db74">&#34;Class&#34;</span>))
+
+<span style="color:#75715e"># Validación cruzada</span>
+control <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">trainControl</span>(method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;cv&#34;</span>, number <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>)
+
+<span style="color:#75715e"># Cuadrícula de hiperparámetros de aumento de gradiente extremo</span>
+grid <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">expand.grid</span>(max_depth        <span style="color:#f92672">=</span> <span style="color:#ae81ff">17</span>,     <span style="color:#75715e"># [0, ∞] # 17</span>
+                    nrounds          <span style="color:#f92672">=</span> <span style="color:#ae81ff">172</span>,    <span style="color:#75715e"># [0, ∞] # 170</span>
+                    eta              <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.4</span>,    <span style="color:#75715e"># [0, 1] # 0.4</span>
+                    gamma            <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>,    <span style="color:#75715e"># [0, ∞] # 0.2</span>
+                    colsample_bytree <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.8</span>,    <span style="color:#75715e"># (0, 1] # 0.8</span>
+                    min_child_weight <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.6</span>,    <span style="color:#75715e"># [0, ∞] # 0.6</span>
+                    subsample        <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.8</span>)    <span style="color:#75715e"># (0, 1] # 0.8</span>
+
+<span style="color:#75715e"># Entrenamiento de aumento de gradiente extremo</span>
+xgbm.tune   <span style="color:#f92672">=</span> <span style="color:#a6e22e">train</span>(
+  x         <span style="color:#f92672">=</span> <span style="color:#a6e22e">select</span>(training, <span style="color:#f92672">-</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Class&#34;</span>)),
+  y         <span style="color:#f92672">=</span> training<span style="color:#f92672">$</span>Class,
+  method    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xgbTree&#34;</span>,
+  tuneGrid  <span style="color:#f92672">=</span> grid,
+  metric    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Kappa&#34;</span>,
+  verbose   <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>,
+  trControl <span style="color:#f92672">=</span> control,
+
+ )
+
+<span style="color:#75715e"># Modelo forecasts</span>
+model <span style="color:#f92672">=</span> <span style="color:#a6e22e">predict</span>(xgbm.tune, <span style="color:#a6e22e">select</span>(testing, <span style="color:#f92672">-</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Class&#34;</span>)))
+
+<span style="color:#75715e">#Matriz de confusión</span>
+<span style="color:#a6e22e">confusionMatrix</span>(model, testing<span style="color:#f92672">$</span>Class)
+</code></pre></div><pre><code>Confusion Matrix and Statistics
+
+                   Reference
+Prediction          Attrited.Customer Existing.Customer
+  Attrited.Customer               294                40
+  Existing.Customer                31              1660
+
+               Accuracy : 0.9649           
+                 95% CI : (0.956, 0.9725)  
+    No Information Rate : 0.8395           
+    P-Value [Acc &gt; NIR] : &lt;2e-16           
+
+                  Kappa : 0.8713           
+
+ Mcnemar's Test P-Value : 0.3424           
+
+            Sensitivity : 0.9046           
+            Specificity : 0.9765           
+         Pos Pred Value : 0.8802           
+         Neg Pred Value : 0.9817           
+             Prevalence : 0.1605           
+         Detection Rate : 0.1452           
+   Detection Prevalence : 0.1649           
+      Balanced Accuracy : 0.9405           
+
+       'Positive' Class : Attrited.Customer
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Graficado</span>
+prev_real <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(<span style="color:#a6e22e">table</span>(model <span style="color:#f92672">=</span> model, real <span style="color:#f92672">=</span> testing<span style="color:#f92672">$</span>Class))
+
+df_confusion            <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(c1 <span style="color:#f92672">=</span> prev_real<span style="color:#f92672">$</span>Freq[1<span style="color:#f92672">:</span><span style="color:#ae81ff">2</span>], c2 <span style="color:#f92672">=</span> prev_real<span style="color:#f92672">$</span>Freq[3<span style="color:#f92672">:</span><span style="color:#ae81ff">4</span>])
+<span style="color:#a6e22e">row.names</span>(df_confusion) <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Attrited.Customer&#34;</span>, <span style="color:#e6db74">&#34;Existing.Customer&#34;</span>)
+<span style="color:#a6e22e">colnames</span>(df_confusion)  <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Attrited.Customer&#34;</span>, <span style="color:#e6db74">&#34;Existing.Customer&#34;</span>)
+
+cm <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.matrix</span>(df_confusion) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hchart</span>() <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_add_theme</span>(<span style="color:#a6e22e">hc_theme_smpl</span>()) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Matriz de confusión&#34;</span>, align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_legend</span>(align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_colorAxis</span>(stops <span style="color:#f92672">=</span> <span style="color:#a6e22e">color_stops</span>(colors <span style="color:#f92672">=</span> viridis<span style="color:#f92672">::</span><span style="color:#a6e22e">inferno</span>(<span style="color:#ae81ff">10</span>))) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_plotOptions</span>(series <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(boderWidth <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, dataLabels <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>))) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">hc_subtitle</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Análisis de abandono de clientes&#34;</span>, align <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>,
+                    style <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#2b908f&#34;</span>, fontWeight <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bold&#34;</span>))
+
+ac <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">billboarder</span>() <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">bb_gaugechart</span>(value <span style="color:#f92672">=</span> <span style="color:#ae81ff">96.49</span>)  <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">bb_title</span>(text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Puntaje de precisión&#34;</span>, padding <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>, position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;center&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+        <span style="color:#a6e22e">bb_legend</span>(show <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>)
+
+a<span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">hw_grid</span>(cm, ac, ncol <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>)
+</code></pre></div><figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/cm.png"/>
+</figure>
+
+<figure><img src="https://ahilton14.github.io/portafolio_ahilton/images/ac.png"/>
+</figure>
+
+<h2 id="6-referencias">6 Referencias</h2>
+<p><a href="https://www.geeksforgeeks.org/binning-in-data-mining/">https://www.geeksforgeeks.org/binning-in-data-mining/</a></p>
+<p><a href="https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/smote">https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/smote</a></p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://ahilton14.github.io/portafolio_ahilton/" >
+    &copy;  Ahilton Choquecahua Tupa 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+<a href="https://www.linkedin.com/in/ahilton-choquecahua-tupa-400613182/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
